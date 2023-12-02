@@ -1,0 +1,52 @@
+﻿@model DiplomService.ViewModels.UserViewModel
+
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "_CabinetLayout";
+}
+
+<div class="d-flex align-content-center">
+    <div class="col-md-7">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <span class="text-danger">@ViewBag.Error</span>
+            <input type="hidden" asp-for="Id"/>
+            <div class="w-100 my-2">
+                <label asp-for="SecondName" class="control-label text-left"></label>
+                <input asp-for="SecondName" class="login-form__input" placeholder="Фамилия*" />
+                <span asp-validation-for="SecondName" class="text-danger"></span>
+            </div>
+
+            <div class="w-100 my-2">
+                <label asp-for="Name" class="control-label"></label>
+                <input asp-for="Name" class="login-form__input" placeholder="Имя*" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+
+            <div class="w-100 my-2">
+                <label asp-for="LastName" class="control-label"></label>
+                <input asp-for="LastName" class="login-form__input" placeholder="Отчество*" />
+                <span asp-validation-for="LastName" class="text-danger"></span>
+            </div>
+
+            <div class="w-100 my-2">
+                <label asp-for="Email" class="control-label"></label>
+                <input asp-for="Email" disabled class="login-form__input" placeholder="Почта*" />
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
+
+            <div class="w-100 my-2">
+                <label asp-for="PhoneNumber" class="control-label"></label>
+                <input asp-for="PhoneNumber" class="login-form__input" placeholder="Номер телефона" />
+                <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+            </div>
+
+            <input type="submit" value="Сохранить" class="login-form__submit d-block" />
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="EditLogin">Смена логина</a>
+    <a asp-action="EditPassword">Смена пароля</a>
+</div>

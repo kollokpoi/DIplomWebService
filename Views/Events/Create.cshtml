@@ -1,0 +1,75 @@
+﻿@model DiplomService.ViewModels.EventViewModel
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="intro" style="height:40vh">
+    <div class="intro__column">
+        <p class="title-text">Заполните данные об организуемом мероприятии</p>
+    </div>
+</div>
+
+<div class="container"> 
+    <form id="eventForm" class="eventPage" enctype="multipart/form-data" method="post">
+       <p class="display-6">Заполните основную информацию</p>
+       <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+       <div class="form-group my-2">
+               <label asp-for="@Model.Name" class="control-label"></label>
+               <input asp-for="@Model.Name" class="login-form__input form-control" />
+               <span asp-validation-for="@Model.Name" class="text-danger"></span>
+           </div>
+       <div class="my-2">
+           <label asp-for="@Model.PreviewImageFile" class="control-label"></label>
+           <div class="form-group d-flex align-items-center">
+               <img src="/Images/camara.png" alt="Image" id="previewImage" class="item-block__image me-4">
+               <div>
+                   <input asp-for="@Model.PreviewImageFile" id="previewImageButton" accept=".png, .jpg, .jpeg" type="file" placeholder="" />
+               </div>
+           </div>
+           <span asp-validation-for="PreviewImageFile" class="text-danger"></span>
+       </div>
+       <div class="form-group my-2">
+               <label asp-for="@Model.Description" class="control-label"></label>
+               <textarea asp-for="@Model.Description" class="login-form__input form-control"></textarea>
+               <span asp-validation-for="@Model.Description" class="text-danger"></span>
+           </div>
+       <div class="form-group my-2">
+               <label asp-for="@Model.PublicEvent" class="control-label"></label>
+               <select asp-for="@Model.PublicEvent" class="login-form__input form-control" title="Будет ли отображаться в общем списке">
+                   <option selected value="true">Публичное</option>
+                   <option value="false">Скрытое</option>
+               </select>
+               <span asp-validation-for="@Model.PublicEvent" class="text-danger"></span>
+           </div>
+       <div class="form-group my-2">
+               <label asp-for="@Model.DivisionsExist" class="control-label"></label>
+               <select asp-for="@Model.DivisionsExist" class="login-form__input form-control" title="Будет ли отображаться в общем списке">
+                   <option selected value="true">Да</option>
+                   <option value="false">Нет</option>
+               </select>
+               <span asp-validation-for="@Model.DivisionsExist" class="text-danger"></span>
+           </div>
+       <div class="form-group my-2">
+               <label asp-for="@Model.DateOfStart" class="control-label"></label>
+               <input asp-for="@Model.DateOfStart" class="login-form__input form-control" />
+               <span asp-validation-for="@Model.DateOfStart" class="text-danger"></span>
+           </div>
+       <div class="form-group my-2">
+               <label asp-for="@Model.DateOfEnd" class="control-label"></label>
+               <input asp-for="@Model.DateOfEnd" class="login-form__input form-control" />
+               <span asp-validation-for="@Model.DateOfEnd" class="text-danger"></span>
+           </div>
+       <div class="d-flex justify-content-end">
+            <input class="btn btn-primary next-button my-3 w-25" type="submit" value="Далее"/>
+       </div>
+    </form>
+</div>
+
+@section Scripts{
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+        <script src="~/js/showImage.js" asp-append-version="true"></script>
+    }
+}

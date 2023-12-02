@@ -1,0 +1,66 @@
+﻿@model Event
+
+@using DiplomService.ViewModels;
+@using DiplomService.ViewModels.Divisions;
+@using DiplomService.ViewModels.Measures;
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@{
+    int eventId = 0;
+    if (ViewBag.eventId != null)
+    {
+        eventId = ViewBag.eventId;
+    }
+}
+<div class="intro" style="height:40vh">
+    <div class="intro__column">
+        <p class="title-text">Заполните данные о подразделениях</p>
+    </div>
+</div>
+<div class="container">
+    <div class="circled-search__block">
+        <input type="text" class="circled-search__input">
+    </div>
+        @{
+        if (Model.Divisions.Count>0)
+            foreach (var item in Model.Divisions)
+            {
+                <a href="/Divisions/Edit/@item.Id?eventId=@Model.Id" class="my-2 item-block py-2 d-flex justify-content-between align-items-center">
+                    @if (item.PreviewImage != null)
+                    {
+                        string? mimeType = item.MimeType; // MIME-тип по умолчанию
+
+                        if (mimeType != null)
+                        {
+                            <img src="data:@mimeType;base64,@Convert.ToBase64String(item.PreviewImage)" alt="Image" class="item-block__image">
+                        }
+                    }
+                    else
+                    {
+                        <img src="/Images/camara.png" alt="Image" class="item-block__image">
+                    }
+                    <p class="control-label name">Название: @item.Name</p>
+                    <p class="control-label">Основное место проведения: @item.MainPlace</p>
+                </a>
+            }
+        
+        else
+        {
+            <p class="align-content-center">Настройте подразделения проводимого события</p>
+        }
+        }
+        <a href="/Divisions/Create/@Model.Id" class="btn btn-primary w-25 mt-3">
+            Добавить мероприятие
+        </a>
+        <div class="d-flex justify-content-between">
+             <a href="/Measures/Index/@Model.Id" class="btn btn-primary my-3 w-25">Назад</a>
+             <a href="/Events/Publish/@Model.Id" class="btn btn-primary my-3 w-25">Опубликовать</a>
+        </div>
+</div>
+@section Scripts{
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/js/searchScript.js"></script>
+    <script src="~/js/searchInputPopUp.js"></script>
+}
