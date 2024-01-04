@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "u9AD4PZXLrise84OeIfl1jrFMTUynsB0pi/0qyIRHys=",
+  "Hash": "50HVSNr2CJkuZKhCKVlZj03vJkLJbtViSCDCMWRyr+A=",
   "Source": "DiplomService",
   "BasePath": "_content/DiplomService",
   "Mode": "Default",
@@ -185,6 +185,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\js\\banUserClick.js"
+    },
+    {
+      "Identity": "H:\\projects\\Diplom\\DiplomService\\wwwroot\\js\\EventApplication.js",
+      "SourceId": "DiplomService",
+      "SourceType": "Discovered",
+      "ContentRoot": "H:\\projects\\Diplom\\DiplomService\\wwwroot\\",
+      "BasePath": "_content/DiplomService",
+      "RelativePath": "js/EventApplication.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\EventApplication.js"
     },
     {
       "Identity": "H:\\projects\\Diplom\\DiplomService\\wwwroot\\js\\EventCreateScript.js",

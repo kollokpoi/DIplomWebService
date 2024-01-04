@@ -186,6 +186,7 @@ namespace DiplomService.Migrations
                         .HasColumnType("bit");
 
                     b.Property<string>("Name")
+                        .IsRequired()
                         .HasMaxLength(40)
                         .HasColumnType("nvarchar(40)");
 
@@ -211,6 +212,10 @@ namespace DiplomService.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
+                    b.Property<string>("ApplicationSenderId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
                     b.Property<string>("Email")
                         .IsRequired()
                         .HasMaxLength(40)
@@ -226,6 +231,8 @@ namespace DiplomService.Migrations
                         .HasColumnType("nvarchar(450)");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("ApplicationSenderId");
 
                     b.HasIndex("EventId");
 
@@ -415,7 +422,7 @@ namespace DiplomService.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("EventId")
+                    b.Property<int?>("EventId")
                         .HasColumnType("int");
 
                     b.Property<byte[]>("Image")
@@ -870,6 +877,12 @@ namespace DiplomService.Migrations
 
             modelBuilder.Entity("DiplomService.Models.EventApplication", b =>
                 {
+                    b.HasOne("DiplomService.Models.Users.OrganizationUsers", "ApplicationSender")
+                        .WithMany()
+                        .HasForeignKey("ApplicationSenderId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.HasOne("DiplomService.Models.Event", "Event")
                         .WithMany()
                         .HasForeignKey("EventId")
@@ -879,6 +892,8 @@ namespace DiplomService.Migrations
                     b.HasOne("DiplomService.Models.Users.WebUser", null)
                         .WithMany("Applications")
                         .HasForeignKey("WebUserId");
+
+                    b.Navigation("ApplicationSender");
 
                     b.Navigation("Event");
                 });
@@ -953,9 +968,7 @@ namespace DiplomService.Migrations
                 {
                     b.HasOne("DiplomService.Models.Event", "Event")
                         .WithMany("News")
-                        .HasForeignKey("EventId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("EventId");
 
                     b.Navigation("Event");
                 });

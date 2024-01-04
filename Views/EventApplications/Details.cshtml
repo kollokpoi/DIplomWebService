@@ -1,0 +1,48 @@
+﻿@model DiplomService.Models.EventApplication
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="intro" style="height:40vh">
+    <div class="intro__column">
+        <p class="title-text">Информация о вашей заявке</p>
+    </div>
+</div>
+<div class="container">
+    <div class="form-group my-2 mb-5">
+        <p class="control-label h5">Статус: @ViewBag.Status</p>
+        <p class="control-label h5">Название учебного заведения: @Model.Institution</p>
+    </div>
+    <p class="h5">Список заявок:</p>
+    @{
+        for (int i = 0; i < Model.ApplicationData.Count; i++)
+        {
+
+            <p class="measureTitle">@Model.ApplicationData[i].SecondName @Model.ApplicationData[i].Name @Model.ApplicationData[i].LastName</p>
+            <div class="itemBlock">
+                <div class="form-group my-2">
+                    <label asp-for="@Model.ApplicationData[i].Course" class="control-label">Курс или класс*</label>
+                    <input asp-for="@Model.ApplicationData[i].Course" class="login-form__input form-control" />
+                </div>
+                <div class="form-group my-2">
+                    <label asp-for="@Model.ApplicationData[i].PhoneNumber" class="control-label">Номер телефона*</label>
+                    <input asp-for="@Model.ApplicationData[i].PhoneNumber" type="tel" class="login-form__input form-control" />
+                </div>
+                <div class="form-group my-2">
+                    <label asp-for="@Model.ApplicationData[i].Email" class="control-label">Электронная почта*</label>
+                    <input asp-for="@Model.ApplicationData[i].Email" type="email" class="login-form__input form-control" />
+                </div>
+                <div class="form-group my-2">
+                    <label asp-for="@Model.ApplicationData[i].Birthday" class="control-label">Дата рождения*</label>
+                    <input asp-for="@Model.ApplicationData[i].Birthday" type="date" class="login-form__input form-control" />
+                </div>
+                <div class="form-group my-2">
+                    <label asp-for="@Model.ApplicationData[i].Birthday" class="control-label">Дата рождения*</label>
+                    <input asp-for="@Model.ApplicationData[i].Division.Name" type="date" class="login-form__input form-control" />
+                </div>
+            </div>
+        }
+    }
+</div>

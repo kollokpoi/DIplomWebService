@@ -86,7 +86,6 @@ namespace DiplomService.Controllers
             var model = _context.Organizations.ToList();
             return View(model);
         }
-
         public async Task<IActionResult> EditApplication(Guid id)
         {
             if (_context.OrganizationApplications.Any())

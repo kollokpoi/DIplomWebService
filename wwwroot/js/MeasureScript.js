@@ -67,6 +67,17 @@
     $(document).on('click', '.measureTitle', function () {
         $(this).next(".datesBlock").slideToggle();
     });
+    $(document).on('click', '.MeasureAddDateBtn', function () {
+        let inputs = $(this).closest(".multiDaysPick").find('.dateOfMeasureTimeBlock');
+        let measureIndex = $(this).data('index');
+
+        let item = getMeasureDivisionDateTemplate(inputs.length, measureIndex);
+
+        if (inputs.length >= 1) {
+            $(this).closest(".multiDaysPick").find('#deleteDateBtn').show();
+        }
+        $(this).closest(".multiDaysPick").find('#multiDaysPickHolder').append(item);
+    })
     function getMeasureDateTemplate(index) {
         return `<div class="d-flex align-items-center">
             <div class="form-group my-2 dateOfMeasureTimeBlock">
@@ -83,17 +94,6 @@
             </div>
             </div>`;
     };
-    $(document).on('click', '.MeasureAddDateBtn', function () {
-        let inputs = $(this).closest(".multiDaysPick").find('.dateOfMeasureTimeBlock');
-        let measureIndex = $(this).data('index');
-
-        let item = getMeasureDivisionDateTemplate(inputs.length, measureIndex);
-
-        if (inputs.length >= 1) {
-            $(this).closest(".multiDaysPick").find('#deleteDateBtn').show();
-        }
-        $(this).closest(".multiDaysPick").find('#multiDaysPickHolder').append(item);
-    })
     function getMeasureDivisionDateTemplate(index,measureIndex) {
         return `<div class="d-flex align-items-center">
             <div class="form-group my-2 dateOfMeasureTimeBlock">

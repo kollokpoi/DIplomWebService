@@ -37,6 +37,10 @@
       "PackagePath": "staticwebassets\\favicon.ico"
     },
     {
+      "Id": "H:\\projects\\Diplom\\DiplomService\\wwwroot\\js\\EventApplication.js",
+      "PackagePath": "staticwebassets\\js\\EventApplication.js"
+    },
+    {
       "Id": "H:\\projects\\Diplom\\DiplomService\\wwwroot\\js\\EventCreateScript.js",
       "PackagePath": "staticwebassets\\js\\EventCreateScript.js"
     },

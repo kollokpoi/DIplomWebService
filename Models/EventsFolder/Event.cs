@@ -38,6 +38,7 @@ namespace DiplomService.Models
         public virtual List<Measure> Measures { get; set; } = new();
         public virtual List<Division> Divisions { get; set; } = new();
         public virtual List<News> News { get; set; } = new();
+        public virtual List<EventApplication>? EventApplications { get; set; }
 
         [NotMapped]
         public string? MimeType { get { return GetImageMimeType(); } }
