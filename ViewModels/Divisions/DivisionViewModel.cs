@@ -17,13 +17,14 @@ namespace DiplomService.ViewModels.Divisions
 
         public string Name { get; set; } = "";
         public string? Description { get; set; } = "";
-        [Required(ErrorMessage = "Поле обязательно для заполнения")]
-        [MaxLength(60)]
-        public string? MainPlace { get; set; }
+
+        public double Longitude { get; set; }
+        public double Latitude { get; set; }
+        public string PlaceName { get; set; } = "";
 
         public List<MeasureViewModel> Measures { get; set; } = new();
 
-        [DataType(DataType.Upload)]
+
         public byte[]? PriviewImage { get; set; } = null;
         [NotMapped]
         public string? MimeType { get { return GetImageMimeType(); } }

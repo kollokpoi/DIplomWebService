@@ -83,7 +83,6 @@
             <div class="form-group my-2 dateOfMeasureTimeBlock">
             <label for="MeasureDates[${index}].Datetime" class="control-label"> Укажите дату и время</label>
             <input type="datetime-local" class="login-form__input form-control" data-val="true" data-val-required="Поле обязательно для заполнения."
-                min="${dateOfStart}" max="${dateOfEnd}"
                 id="MeasureDates_${index}__Datetime" name="MeasureDates[${index}].Datetime"
                 aria-describedby="MeasureDates_${index}__Datetime-error" aria-invalid="false">
             <span class="text-danger field-validation-valid" data-valmsg-for="MeasureDates[${index}].Datetime" data-valmsg-replace="true"></span>
@@ -99,7 +98,6 @@
             <div class="form-group my-2 dateOfMeasureTimeBlock">
             <label for="Measures[${measureIndex}].MeasureDates[${index}].Datetime" class="control-label"> Укажите дату и время</label>
             <input type="datetime-local" class="login-form__input form-control" data-val="true" data-val-required="Поле обязательно для заполнения."
-                min="${dateOfStart}" max="${dateOfEnd}"
                 id="Measures_${measureIndex}__MeasureDates_${index}__Datetime" name="Measures[${measureIndex}].MeasureDates[${index}].Datetime"
                 aria-describedby="MeasureDates_${index}__Datetime-error" aria-invalid="false">
             <span class="text-danger field-validation-valid" data-valmsg-for="Measures[${measureIndex}].MeasureDates[${index}].Datetime" data-valmsg-replace="true"></span>

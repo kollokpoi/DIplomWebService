@@ -1,11 +1,15 @@
 ﻿@using DiplomService.ViewModels;
+@using DiplomService.Services;
 @using DiplomService.ViewModels.Measures;
 @{
     ViewData["Title"] = "Create";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 @model MeasureViewModel
-
+@{
+    string min = Model.StartDate.ToString("yyyy-MM-ddTHH:mm:ss");
+    string max = Model.EndDate?.ToString("yyyy-MM-ddTHH:mm:ss");
+}
 <div class="intro" style="height:40vh">
     <div class="intro__column">
         <p class="title-text">Заполните данные о мероприятии</p>
@@ -16,44 +20,66 @@
     <form class="measuresForm my-3" id="measuresForm" method="post" enctype="multipart/form-data">
 
         <input type="hidden" asp-for="EventId" />
-        @{
-            string min = $"{Model.StartDate.Year}-{Model.StartDate.Month}-{Model.StartDate.Day}";
-            string max = "";
-            if (Model.EndDate!=null)
-            {
-                min = $"{Model.EndDate.Value.Year}-{Model.EndDate.Value.Month}-{Model.EndDate.Value.Day}";
-            }
-            <input type="hidden" asp-for="EndDate" value="@max" />
-            <input type="hidden" asp-for="StartDate" value="@min" />
-        }
+        <input type="hidden" asp-for="EndDate" />
+        <input type="hidden" asp-for="StartDate"/>
         <input type="hidden" asp-for="DivisionsExists" />
         <div asp-validation-summary="ModelOnly" class="text-danger"></div>
 
         
-        <p class="measureTitle">Новое мероприятие</p>
+        <p class="measureTitle h4">Новое мероприятие</p>
         <div class="measureItem">
-            <div class="form-group mb-2">
-                <label asp-for="Name" class="control-label">Название*</label>
-                <input asp-for="Name" data-val="true" type="text" class="login-form__input form-control" />
-                <span asp-validation-for="Name" class="text-danger"></span>
-            </div>
-            <div class="form-group my-2">
-                <label asp-for="Length" class="control-label">Укажите продолжительность*</label>
-                <input asp-for="Length" type="time" value="00:00" class="login-form__input form-control" />
-                <span asp-validation-for="Length" class="text-danger"></span>
-            </div>
+            <div class="d-flex align-items-center">
+                <div class="my-2 me-2">
+                    <label asp-for="IconImageFile" class="control-label"></label>
+                    <div class="form-group">
+                        @{
+                            @if (Model is not null && Model.Icon is not null)
+                            {
+                                string? mimeType = ImageWorker.GetImageMimeType(Model.Icon); // MIME-тип по умолчанию
 
-            <div class="form-group my-2">
-                <label asp-for="Descrition" class="control-label">Описание</label>
-                <textarea asp-for="Descrition" class="login-form__input form-control"></textarea>
-            </div>
+                                if (mimeType is not null)
+                                {
+                                    <img src="data:@mimeType;base64,@Convert.ToBase64String(Model.Icon)" id="previewImage" alt="Image" class="item-block__image">
+                                }
+                            }
+                            else
+                            {
+                                <img src="/Images/camara.png" alt="Image" id="previewImage" class="item-block__image">
+                            }
+                        }
+                        <div>
+                            <input asp-for="IconImageFile" style="display:none" id="previewImageButton" accept=".png, .jpg, .jpeg" class="btn" type="file" placeholder="" />
+                            <p onclick="document.getElementById('previewImageButton').click()" class="login-form__submit pointer-event text-center">Выберите файл</p>
+                        </div>
+                    </div>
+                    <span asp-validation-for="IconImageFile" class="text-danger"></span>
+                </div>
+                <div class="w-100">
+                    <div class="form-group mb-2">
+                        <label asp-for="Name" class="control-label">Название*</label>
+                        <input asp-for="Name" data-val="true" type="text" class="login-form__input form-control" />
+                        <span asp-validation-for="Name" class="text-danger"></span>
+                    </div>
+                    <div class="form-group my-2">
+                        <label asp-for="Length" class="control-label">Укажите продолжительность*</label>
+                        <input asp-for="Length" type="time" value="00:00" class="login-form__input form-control" />
+                        <span asp-validation-for="Length" class="text-danger"></span>
+                    </div>
 
-            <div class="form-group my-2" id="measurePlaceBlock">
-                <label asp-for="Place" class="control-label">Основное место проведения *</label>
-                <input asp-for="Place" class="login-form__input form-control" />
-                <span asp-validation-for="Place" class="text-danger"></span>
-            </div>
+                    <div class="form-group my-2">
+                        <label asp-for="Descrition" class="control-label">Описание</label>
+                        <textarea asp-for="Descrition" class="login-form__input form-control"></textarea>
+                    </div>
 
+                    <div class="form-group my-2" id="measurePlaceBlock">
+                        <label asp-for="Place" class="control-label">Основное место проведения *</label>
+                        <input asp-for="Place" class="login-form__input form-control" />
+                        <span asp-validation-for="Place" class="text-danger"></span>
+                    </div>
+
+                </div>
+            </div>
+            
             @{
             if (Model.DivisionsExists)
                 {
@@ -72,10 +98,7 @@
                                 <div class="d-flex align-items-center">
                                     <div class="form-group my-2 dateOfMeasureTimeBlock">
                                         <label asp-for="MeasureDates[i].Datetime" class="control-label">Укажите дату и время</label>
-                                       @{
-
-                                          <input asp-for="MeasureDates[i].Datetime" type="datetime-local" max="@max" min="@min" class="login-form__input form-control" />
-                                        }
+                                        <input asp-for="MeasureDates[i].Datetime"  min="@min" max="@max" type="datetime-local" class="login-form__input form-control" />
                                         <span asp-validation-for="MeasureDates[i].Datetime" class="text-danger"></span>
                                     </div>
                                     <div class="form-group ms-3 dateOfMeasurePlaceBlock">
@@ -223,7 +246,7 @@
                                     <div class="d-flex align-items-center">
                                         <div class="form-group my-2 dateOfMeasureTimeBlock">
                                             <label asp-for="MeasureDates[i].Datetime" class="control-label">Укажите дату и время</label>
-                                            <input asp-for="MeasureDates[i].Datetime" type="datetime-local" class="login-form__input form-control" />
+                                            <input asp-for="MeasureDates[i].Datetime" min="@min" max="@max" type="datetime-local" class="login-form__input form-control" />
                                             <span asp-validation-for="MeasureDates[i].Datetime" class="text-danger"></span>
                                         </div>
                                         <div class="form-group ms-3 dateOfMeasurePlaceBlock">
@@ -243,11 +266,7 @@
                     </div>
                     <div style="@singleVisible" class="form-group my-2" id="singleDatePick">
                         <label asp-for="MeasureDates[0].Datetime" class="control-label">Укажите дату и время проведения*</label>
-                        @{
-                            string minValue = min;
-                            string maxValue = max;
-                        }
-                        <input asp-for="MeasureDates[0].Datetime" type="datetime-local" min="@Model.StartDate" max="@Model.EndDate" class="login-form__input form-control" />
+                        <input asp-for="MeasureDates[0].Datetime" min="@min" max="@max" type="datetime-local" class="login-form__input form-control" />
                         <span asp-validation-for="MeasureDates[0].Datetime" class="text-danger"></span>
                     </div>
                     }
@@ -264,5 +283,6 @@
     @{
         await Html.RenderPartialAsync("_ValidationScriptsPartial");
         <script src="~/js/MeasureScript.js" asp-append-version="true"></script>
+        <script src="~/js/showImage.js"></script>
     }
 }

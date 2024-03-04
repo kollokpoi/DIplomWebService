@@ -42,5 +42,17 @@ namespace DiplomService.Services
             };
             SendMessage(m);
         }
+        public static void SendEventApplicationResponce(string messageBody, EventApplicationViewModel messageVM)
+        {
+            var from = new MailAddress(senderEmail, "PrograMatch");
+            var to = new MailAddress(messageVM.Email);
+            var m = new MailMessage(from, to)
+            {
+                Subject = "PrograMatch. Ваша заявка была рассмотрена.",
+                Body = messageBody,
+                IsBodyHtml = true
+            };
+            SendMessage(m);
+        }
     }
 }

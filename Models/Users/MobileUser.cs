@@ -9,7 +9,7 @@ namespace DiplomService.Models.Users
         [Required]
         [DataType(DataType.Date)]
         public DateTime? Birthday { get; set; }
-
+        public int Course { get; set; }
         public virtual List<DivisionUsers> UserDivisions { get; set; } = new();
     }
 }

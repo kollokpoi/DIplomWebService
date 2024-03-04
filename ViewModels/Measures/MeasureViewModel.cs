@@ -6,7 +6,7 @@ namespace DiplomService.ViewModels.Measures
     {
         [Key]
         public int Id { get; set; }
-
+        public byte[]? Icon { get; set; }
         [Required(ErrorMessage = "Не указано имя")]
         public string Name { get; set; } = "";
 
@@ -26,6 +26,23 @@ namespace DiplomService.ViewModels.Measures
         public bool SameForAll { get; set; } = false;
 
 
+        private IFormFile? iconImageFile;
+        [Display(Name = "Иконка мероприятия")]
+        public IFormFile? IconImageFile
+        {
+            get { return iconImageFile; }
+            set
+            {
+                iconImageFile = value;
+                if (value != null)
+                {
+                    using var memoryStream = new MemoryStream();
+
+                    value.CopyTo(memoryStream);
+                    Icon = memoryStream.ToArray();
+                }
+            }
+        }
 
         public int EventId { get; set; }
         public DateTime StartDate { get; set; }
@@ -33,23 +50,7 @@ namespace DiplomService.ViewModels.Measures
         public bool DivisionsExists { get; set; } = true;
 
         public virtual List<MeasureDatesViewModel> MeasureDates { get; set; } = new();
-        public virtual List<MeasureDaysViewModel> MeasureDays { get; set; } = new()
-        {
-            new()
-            {DayNumber = 0,},
-            new()
-            {DayNumber = 1,},
-            new()
-            {DayNumber = 2,},
-            new()
-            {DayNumber = 3},
-            new()
-            {DayNumber = 4},
-            new()
-            {DayNumber = 5},
-            new()
-            {DayNumber = 6},
-        };
+        public virtual List<MeasureDaysViewModel> MeasureDays { get; set; } = new();
 
     }
 }

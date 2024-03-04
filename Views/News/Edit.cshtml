@@ -2,50 +2,127 @@
 @model NewsViewModel
 
 @{
-    ViewData["Title"] = "Edit";
+    ViewData["Title"] = "Create";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
-<h1>Edit</h1>
-
-<h4>News</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="Edit">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <input type="hidden" asp-for="News.Id" />
-            <div class="form-group">
-                <label asp-for="News.Title" class="control-label"></label>
-                <input asp-for="News.Title" class="form-control" />
-                <span asp-validation-for="News.Title" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="News.Description" class="control-label"></label>
-                <input asp-for="News.Description" class="form-control" />
-                <span asp-validation-for="News.Description" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="News.Author" class="control-label"></label>
-                <input asp-for="News.Author" class="form-control" />
-                <span asp-validation-for="News.Author" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="ImageFile" class="control-label"></label>
-                <input asp-for="ImageFile" class="form-control" />
-                <span asp-validation-for="ImageFile" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-primary" />
-            </div>
-        </form>
+<div class="intro">
+    <div class="intro__column">
+        <p class="title-text">Добавление новости о событии @Model.EventName</p>
     </div>
 </div>
+<div class="container">
+    <div id="faq">
+    </div>
+    <div id="faq-body">
+    </div>
+    <form asp-action="Edit" method="post" enctype="multipart/form-data">
+        <input type="hidden" asp-for="EventId" />
+        <input type="hidden" asp-for="Id" />
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <div id="ItemsHolder">
+            <p class="display-6 fw-bold" title="Эта часть будет отображаться на странице с новостями">Основная часть</p>
+            <div class="d-flex align-items-center">
+                <div class="my-2 me-2">
+                    <label asp-for="ImageFile" class="control-label">Изображение</label>
+                    <div class="form-group">
+                        @{
+                            @if (Model is not null && Model.PriviewImage is not null)
+                            {
+                                string? mimeType = Model.MimeType; // MIME-тип по умолчанию
 
-<div>
-    <a asp-action="Index">Back to List</a>
+                                if (mimeType is not null)
+                                {
+                                    <img src="data:@mimeType;base64,@Convert.ToBase64String(Model.PriviewImage)" alt="Image" class="item-block__image previewImage">
+                                }
+                            }
+                            else
+                            {
+                                <img src="/Images/camara.png" alt="Image" class="item-block__image previewImage">
+                            }
+                        }
+                        <input asp-for="ImageFile" style="display:none" accept=".png, .jpg, .jpeg" class="btn previewImageInput" type="file" />
+                        <p class="login-form__submit pointer-event text-center previewImageButton">Выберите файл</p>
+                    </div>
+                    <span asp-validation-for="ImageFile" class="text-danger"></span>
+                </div>
+                <div class="w-100">
+                    <div class="form-group my-2">
+                        <label asp-for="Name" class="control-label"></label>
+                        <input asp-for="Name" class="login-form__input form-control" />
+                        <span asp-validation-for="Name" class="text-danger"></span>
+                    </div>
+                    <div class="form-group my-2">
+                        <label asp-for="Description" class="control-label"></label>
+                        <textarea asp-for="Description" class="login-form__input form-control"></textarea>
+                        <span asp-validation-for="Description" class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
+            <p class="display-6 fw-bold" title="Эта часть будет отображаться на странице с новостями">Подзаголовки</p>
+            @for (int i = 0; i < Model.Sections.Count; i++)
+            {
+                <div class="d-flex align-items-center sectionBlock position-relative">
+                    <input type="hidden" asp-for="Sections[i].Id" />
+                    
+                    <div class="my-2 me-2">
+                        <label asp-for="Sections[i].ImageFile" class="control-label"></label>
+                        <div class="form-group">
+                            @{
+                                @if (Model is not null && Model.Sections[i].Image is not null)
+                                {
+                                    string? mimeType = Model.Sections[i].MimeType; // MIME-тип по умолчанию
+
+                                    if (mimeType is not null)
+                                    {
+                                        <img src="data:@mimeType;base64,@Convert.ToBase64String(Model.Sections[i].Image)" alt="Image" class="item-block__image previewImage">
+                                    }
+                                }
+                                else
+                                {
+                                    <img src="/Images/camara.png" alt="Image" class="item-block__image previewImage">
+                                }
+                            }
+
+                            <input asp-for="Sections[i].ImageFile" style="display:none" accept=".png, .jpg, .jpeg" class="btn previewImageInput" type="file" />
+                            <p class="login-form__submit pointer-event text-center previewImageButton">Выберите файл</p>
+
+                        </div>
+                        <span asp-validation-for="Sections[i].ImageFile" class="text-danger"></span>
+                    </div>
+                    <div class="w-100">
+                        <div class="form-group my-2">
+                            <label asp-for="Sections[i].Name" class="control-label"></label>
+                            <input asp-for="Sections[i].Name" class="login-form__input form-control" />
+                            <span asp-validation-for="Sections[i].Name" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-group my-2">
+                            <label asp-for="Sections[i].Description" class="control-label"></label>
+                            <textarea asp-for="Sections[i].Description" class="login-form__input form-control"></textarea>
+                            <span asp-validation-for="Sections[i].Description" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <input type="hidden" asp-for="Sections[i].ToDelete" />
+                    <div class="deleteBtn" data-index="@i">
+
+                    </div>
+                </div>
+            }
+
+        </div>
+
+        <div class="form-group d-flex justify-content-around">
+            <a href="" id="addBtn" class="btn-primary login-form__submit w-25" style="padding: 10px 0">Добавить подзаголовок</a>
+            <input type="submit" value="Сохранить" class="btn-primary login-form__submit w-25" />
+        </div>
+    </form>
 </div>
 
+
 @section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+    <script src="~/js/showImage.js"></script>
+    <script src="~/js/newsScript.js" asp-append-version="true"></script>
 }

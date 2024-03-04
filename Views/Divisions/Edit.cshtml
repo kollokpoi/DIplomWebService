@@ -4,7 +4,14 @@
     ViewData["Title"] = "Edit";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
+@{
+    string min = $"{Model.StartDate.Day}.{Model.StartDate.Month}.{Model.StartDate.Year}";
+    string max = "";
+    if (Model.EndDate != null)
+    {
+        max = $"{Model.EndDate.Value.Day}.{Model.EndDate.Value.Month}.{Model.EndDate.Value.Year}";
+    }
+}
 <div class="intro" style="height:40vh">
     <div class="intro__column">
         <p class="title-text">Заполните данные об организуемом мероприятии</p>
@@ -14,9 +21,10 @@
 <div class="container">
     <form id="eventForm" class="eventPage" enctype="multipart/form-data" method="post">
         <p class="display-6">Заполните основную информацию</p>
+
         <input type="hidden" asp-for="EventId" />
-        <input type="hidden" asp-for="EndDate" />
-        <input type="hidden" asp-for="StartDate" />
+        <input type="hidden" asp-for="Longitude" />
+        <input type="hidden" asp-for="Latitude" />
 
         <div asp-validation-summary="ModelOnly" class="text-danger"></div>
         <div class="form-group my-2">
@@ -57,9 +65,20 @@
         </div>
 
         <div class="form-group my-2">
-            <label asp-for="@Model.MainPlace" class="control-label">Основное место проведения*</label>
-            <textarea asp-for="@Model.MainPlace" class="login-form__input form-control"></textarea>
-            <span asp-validation-for="@Model.MainPlace" class="text-danger"></span>
+            <label asp-for="PlaceName" class="control-label">Основное место проведения*</label>
+            <input asp-for="PlaceName" class="login-form__input form-control" />
+            <div id="map" class="my-2"></div>
+            <span asp-validation-for="PlaceName" class="text-danger"></span>
+        </div>
+        <div class="form-group my-2">
+            <label asp-for="@Model.StartDate" class="control-label">Дата начала*</label>
+            <input asp-for="@Model.StartDate" class="login-form__input form-control" />
+            <span asp-validation-for="@Model.StartDate" class="text-danger"></span>
+        </div>
+        <div class="form-group my-2">
+            <label asp-for="@Model.EndDate" class="control-label">Дата окончания</label>
+            <input asp-for="@Model.EndDate" class="login-form__input form-control" />
+            <span asp-validation-for="@Model.EndDate" class="text-danger"></span>
         </div>
 
         @{
@@ -209,7 +228,7 @@
                                                     <div class="form-group my-2 dateOfMeasureTimeBlock">
                                                         <input type="hidden" asp-for="Measures[i].MeasureDates[j].Id"/>
                                                         <label asp-for="Measures[i].MeasureDates[j].Datetime" class="control-label">Укажите дату и время</label>
-                                                        <input asp-for="Measures[i].MeasureDates[j].Datetime" type="datetime-local" class="login-form__input form-control" />
+                                                        <input asp-for="Measures[i].MeasureDates[j].Datetime" min="@min" max="@max" type="datetime-local" class="login-form__input form-control" />
                                                         <span asp-validation-for="Measures[i].MeasureDates[j].Datetime" class="text-danger"></span>
                                                     </div>
                                                     <div class="form-group ms-3 dateOfMeasurePlaceBlock">
@@ -245,7 +264,7 @@
         }
         <input type="submit" value="Сохранить" class="btn btn-primary w-25 mt-3" />
     </form>
-    <form asp-action="Delete" method="post">
+    <form asp-action="Delete" method="post" class="d-flex justify-content-end">
         <input type="hidden" asp-for="Id" />
         <input type="hidden" asp-for="EventId" />
         <input type="submit" value="Удалить" class="btn btn-danger" />
@@ -259,6 +278,8 @@
         await Html.RenderPartialAsync("_ValidationScriptsPartial");
         <script src="~/js/showImage.js" asp-append-version="true"></script>
         <script src="~/js/MeasureScript.js" asp-append-version="true"></script>
+        <script src="https://api-maps.yandex.ru/2.1/?apikey=375cc711-8399-4720-be09-5496b07e2890&lang=ru_RU" type="text/javascript"></script>
+        <script src="~/js/MapScript.js" asp-append-version="true"></script>
     }
 }
 

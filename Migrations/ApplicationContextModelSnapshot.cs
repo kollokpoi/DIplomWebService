@@ -39,13 +39,17 @@ namespace DiplomService.Migrations
                     b.Property<DateTime>("Birthday")
                         .HasColumnType("datetime2");
 
-                    b.Property<int?>("Course")
+                    b.Property<int>("Course")
+                        .HasColumnType("int");
+
+                    b.Property<bool>("DivisionDirector")
+                        .HasColumnType("bit");
+
+                    b.Property<int>("DivisionId")
                         .HasColumnType("int");
 
                     b.Property<string>("Email")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Institution")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("LastName")
@@ -67,6 +71,8 @@ namespace DiplomService.Migrations
                     b.HasKey("Id");
 
                     b.HasIndex("ApplicationId");
+
+                    b.HasIndex("DivisionId");
 
                     b.ToTable("ApplicationData");
                 });
@@ -119,15 +125,20 @@ namespace DiplomService.Migrations
                     b.Property<int>("EventId")
                         .HasColumnType("int");
 
-                    b.Property<string>("MainPlace")
-                        .IsRequired()
-                        .HasMaxLength(60)
-                        .HasColumnType("nvarchar(60)");
+                    b.Property<double>("Latitude")
+                        .HasColumnType("float");
+
+                    b.Property<double>("Longitude")
+                        .HasColumnType("float");
 
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)");
+
+                    b.Property<string>("PlaceName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<byte[]>("PreviewImage")
                         .HasColumnType("varbinary(max)");
@@ -154,6 +165,7 @@ namespace DiplomService.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("UserId")
+                        .IsRequired()
                         .HasColumnType("nvarchar(450)");
 
                     b.HasKey("Id");
@@ -212,6 +224,9 @@ namespace DiplomService.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
+                    b.Property<bool?>("Accepted")
+                        .HasColumnType("bit");
+
                     b.Property<string>("ApplicationSenderId")
                         .IsRequired()
                         .HasColumnType("nvarchar(450)");
@@ -224,19 +239,18 @@ namespace DiplomService.Migrations
                     b.Property<int>("EventId")
                         .HasColumnType("int");
 
+                    b.Property<string>("Institution")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<DateTime>("TimeOfSend")
                         .HasColumnType("datetime2");
-
-                    b.Property<string>("WebUserId")
-                        .HasColumnType("nvarchar(450)");
 
                     b.HasKey("Id");
 
                     b.HasIndex("ApplicationSenderId");
 
                     b.HasIndex("EventId");
-
-                    b.HasIndex("WebUserId");
 
                     b.ToTable("EventApplications");
                 });
@@ -345,6 +359,9 @@ namespace DiplomService.Migrations
                     b.Property<int>("EventId")
                         .HasColumnType("int");
 
+                    b.Property<byte[]>("Icon")
+                        .HasColumnType("varbinary(max)");
+
                     b.Property<TimeSpan>("Length")
                         .HasColumnType("time");
 
@@ -390,7 +407,10 @@ namespace DiplomService.Migrations
                     b.Property<DateTime>("DateOfSend")
                         .HasColumnType("datetime2");
 
-                    b.Property<string>("SenderId")
+                    b.Property<int>("SenderId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("SenderId1")
                         .IsRequired()
                         .HasColumnType("nvarchar(450)");
 
@@ -398,7 +418,7 @@ namespace DiplomService.Migrations
 
                     b.HasIndex("ChatId");
 
-                    b.HasIndex("SenderId");
+                    b.HasIndex("SenderId1");
 
                     b.ToTable("Message");
                 });
@@ -571,6 +591,9 @@ namespace DiplomService.Migrations
 
                     b.Property<bool>("EmailConfirmed")
                         .HasColumnType("bit");
+
+                    b.Property<byte[]>("Image")
+                        .HasColumnType("varbinary(max)");
 
                     b.Property<string>("LastName")
                         .IsRequired()
@@ -792,6 +815,9 @@ namespace DiplomService.Migrations
                         .IsRequired()
                         .HasColumnType("datetime2");
 
+                    b.Property<int>("Course")
+                        .HasColumnType("int");
+
                     b.ToTable("MobileUsers");
                 });
 
@@ -825,7 +851,15 @@ namespace DiplomService.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
+                    b.HasOne("DiplomService.Models.Division", "Division")
+                        .WithMany()
+                        .HasForeignKey("DivisionId")
+                        .OnDelete(DeleteBehavior.NoAction)
+                        .IsRequired();
+
                     b.Navigation("Application");
+
+                    b.Navigation("Division");
                 });
 
             modelBuilder.Entity("DiplomService.Models.Chat", b =>
@@ -868,7 +902,9 @@ namespace DiplomService.Migrations
 
                     b.HasOne("DiplomService.Models.Users.MobileUser", "User")
                         .WithMany("UserDivisions")
-                        .HasForeignKey("UserId");
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("Division");
 
@@ -877,21 +913,17 @@ namespace DiplomService.Migrations
 
             modelBuilder.Entity("DiplomService.Models.EventApplication", b =>
                 {
-                    b.HasOne("DiplomService.Models.Users.OrganizationUsers", "ApplicationSender")
-                        .WithMany()
+                    b.HasOne("DiplomService.Models.Users.WebUser", "ApplicationSender")
+                        .WithMany("Applications")
                         .HasForeignKey("ApplicationSenderId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("DiplomService.Models.Event", "Event")
-                        .WithMany()
+                        .WithMany("EventApplications")
                         .HasForeignKey("EventId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-
-                    b.HasOne("DiplomService.Models.Users.WebUser", null)
-                        .WithMany("Applications")
-                        .HasForeignKey("WebUserId");
 
                     b.Navigation("ApplicationSender");
 
@@ -957,7 +989,7 @@ namespace DiplomService.Migrations
 
                     b.HasOne("DiplomService.Models.User", "Sender")
                         .WithMany()
-                        .HasForeignKey("SenderId")
+                        .HasForeignKey("SenderId1")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
@@ -1109,6 +1141,8 @@ namespace DiplomService.Migrations
             modelBuilder.Entity("DiplomService.Models.Event", b =>
                 {
                     b.Navigation("Divisions");
+
+                    b.Navigation("EventApplications");
 
                     b.Navigation("Measures");
 

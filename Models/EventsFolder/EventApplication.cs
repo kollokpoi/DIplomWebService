@@ -1,6 +1,7 @@
 ﻿using DiplomService.Models.Users;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Text.Json.Serialization;
 
 namespace DiplomService.Models
 {
@@ -22,8 +23,10 @@ namespace DiplomService.Models
         public string ApplicationSenderId { get; set; } = "";
 
         [ForeignKey("EventId")]
+        [JsonIgnore]
         public virtual Event Event { get; set; } = new();
         [ForeignKey("ApplicationSenderId")]
+        [JsonIgnore]
         public virtual WebUser ApplicationSender { get; set; } = new();
         public virtual List<ApplicationData> ApplicationData { get; set; } = new();
     }

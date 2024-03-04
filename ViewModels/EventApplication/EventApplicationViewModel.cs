@@ -11,7 +11,7 @@ namespace DiplomService.ViewModels.EventApplication
 
         [Required(ErrorMessage = "Поле обязательно к заполнению")]
         public string Institution { get; set; } = "";
-
+        public bool DivisionsExist { get; set; }
         public List<ApplicationData> ApplicationDatas { get; set; } = new();
         public List<Division> Divisions { get; set; } = new();
     }

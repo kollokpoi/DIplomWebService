@@ -10,39 +10,28 @@
         <p class="title-text">Информация о вашей заявке</p>
     </div>
 </div>
-<div class="container">
-    <div class="form-group my-2 mb-5">
-        <p class="control-label h5">Статус: @ViewBag.Status</p>
-        <p class="control-label h5">Название учебного заведения: @Model.Institution</p>
+<div class="container mt-5">
+    <p class="control-label h5 mb-3">Статус: @ViewBag.Status</p>
+    <p class="control-label h5 mb-3">Название учебного заведения: @Model.Institution</p>
+    <p class="h5 my-3">Список заявок:</p>
+    <div class="grid-samecolumn w-100 px-4">
+        <p>Фио</p>
+        <p>Курс/класс</p>
+        <p>Подразделение</p>
     </div>
-    <p class="h5">Список заявок:</p>
-    @{
-        for (int i = 0; i < Model.ApplicationData.Count; i++)
-        {
-
-            <p class="measureTitle">@Model.ApplicationData[i].SecondName @Model.ApplicationData[i].Name @Model.ApplicationData[i].LastName</p>
-            <div class="itemBlock">
-                <div class="form-group my-2">
-                    <label asp-for="@Model.ApplicationData[i].Course" class="control-label">Курс или класс*</label>
-                    <input asp-for="@Model.ApplicationData[i].Course" class="login-form__input form-control" />
-                </div>
-                <div class="form-group my-2">
-                    <label asp-for="@Model.ApplicationData[i].PhoneNumber" class="control-label">Номер телефона*</label>
-                    <input asp-for="@Model.ApplicationData[i].PhoneNumber" type="tel" class="login-form__input form-control" />
-                </div>
-                <div class="form-group my-2">
-                    <label asp-for="@Model.ApplicationData[i].Email" class="control-label">Электронная почта*</label>
-                    <input asp-for="@Model.ApplicationData[i].Email" type="email" class="login-form__input form-control" />
-                </div>
-                <div class="form-group my-2">
-                    <label asp-for="@Model.ApplicationData[i].Birthday" class="control-label">Дата рождения*</label>
-                    <input asp-for="@Model.ApplicationData[i].Birthday" type="date" class="login-form__input form-control" />
-                </div>
-                <div class="form-group my-2">
-                    <label asp-for="@Model.ApplicationData[i].Birthday" class="control-label">Дата рождения*</label>
-                    <input asp-for="@Model.ApplicationData[i].Division.Name" type="date" class="login-form__input form-control" />
-                </div>
-            </div>
-        }
+    @for (int i = 0; i < Model.ApplicationData.Count; i++)
+    {
+        <div class="item-block my-3 grid-samecolumn w-100">
+            <span>@Model.ApplicationData[i].SecondName @Model.ApplicationData[i].Name @Model.ApplicationData[i].LastName</span>
+            <span>@Model.ApplicationData[i].Course</span>
+            @{
+                if (Model.Event.DivisionsExist)
+                {
+                     <div class="form-group my-2">
+                        <span class="control-label">Подразделение: @Model.ApplicationData[i].Division.Name</span>
+                     </div>
+                }
+            }
+        </div>
     }
 </div>

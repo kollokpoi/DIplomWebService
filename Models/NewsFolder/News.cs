@@ -1,5 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Text.Json.Serialization;
 
 namespace DiplomService.Models
 {
@@ -19,7 +20,8 @@ namespace DiplomService.Models
         public virtual List<Section>? Sections { get; set; } = null;
 
         public int? EventId { get; set; }
-        public virtual Event? Event { get; set; } = null;
+        [JsonIgnore]
+        public virtual Event Event { get; set; } = new();
 
         [NotMapped]
         public string? MimeType { get { return GetImageMimeType(); } }

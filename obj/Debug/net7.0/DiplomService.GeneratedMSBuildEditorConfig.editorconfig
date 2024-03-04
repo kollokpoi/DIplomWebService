@@ -56,10 +56,6 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2FiaW5ldFxFZGl0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[H:/projects/Diplom/DiplomService/Views/Cabinet/EditLogin.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2FiaW5ldFxFZGl0TG9naW4uY3NodG1s
-build_metadata.AdditionalFiles.CssScope = 
-
 [H:/projects/Diplom/DiplomService/Views/Cabinet/EditPassword.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2FiaW5ldFxFZGl0UGFzc3dvcmQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
@@ -100,8 +96,8 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXZlbnRBcHBsaWNhdGlvbnNcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[H:/projects/Diplom/DiplomService/Views/EventApplications/List.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXZlbnRBcHBsaWNhdGlvbnNcTGlzdC5jc2h0bWw=
+[H:/projects/Diplom/DiplomService/Views/Events/AddUser.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXZlbnRzXEFkZFVzZXIuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [H:/projects/Diplom/DiplomService/Views/Events/Create.cshtml]
@@ -112,12 +108,24 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXZlbnRzXERldGFpbHMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
+[H:/projects/Diplom/DiplomService/Views/Events/DivisionsUsers.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXZlbnRzXERpdmlzaW9uc1VzZXJzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [H:/projects/Diplom/DiplomService/Views/Events/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXZlbnRzXEVkaXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
+[H:/projects/Diplom/DiplomService/Views/Events/EditUser.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXZlbnRzXEVkaXRVc2VyLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [H:/projects/Diplom/DiplomService/Views/Events/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXZlbnRzXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[H:/projects/Diplom/DiplomService/Views/Events/NoDivisionUsers.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXZlbnRzXE5vRGl2aXNpb25Vc2Vycy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [H:/projects/Diplom/DiplomService/Views/Home/Index.cshtml]
@@ -130,6 +138,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [H:/projects/Diplom/DiplomService/Views/HtmlTemplates/EmailAccept.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSHRtbFRlbXBsYXRlc1xFbWFpbEFjY2VwdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[H:/projects/Diplom/DiplomService/Views/HtmlTemplates/EventApplicationResponce.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSHRtbFRlbXBsYXRlc1xFdmVudEFwcGxpY2F0aW9uUmVzcG9uY2UuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [H:/projects/Diplom/DiplomService/Views/HtmlTemplates/RegistrateUser.cshtml]
@@ -228,6 +240,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9OYXZQYXJ0aWFsLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
+[H:/projects/Diplom/DiplomService/Views/Shared/_NewsSectionEntry.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9OZXdzU2VjdGlvbkVudHJ5LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [H:/projects/Diplom/DiplomService/Views/Shared/_StylePartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9TdHlsZVBhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
@@ -242,10 +258,6 @@ build_metadata.AdditionalFiles.CssScope =
 
 [H:/projects/Diplom/DiplomService/Views/User/List.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxMaXN0LmNzaHRtbA==
-build_metadata.AdditionalFiles.CssScope = 
-
-[H:/projects/Diplom/DiplomService/Views/WebUser/Applications.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcV2ViVXNlclxBcHBsaWNhdGlvbnMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [H:/projects/Diplom/DiplomService/Views/_ViewImports.cshtml]

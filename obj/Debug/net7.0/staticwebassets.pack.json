@@ -1,6 +1,14 @@
 {
   "Files": [
     {
+      "Id": "H:\\projects\\Diplom\\DiplomService\\wwwroot\\Images\\CreatedImage.png",
+      "PackagePath": "staticwebassets\\Images\\CreatedImage.png"
+    },
+    {
+      "Id": "H:\\projects\\Diplom\\DiplomService\\wwwroot\\Images\\DeleteIcon.png",
+      "PackagePath": "staticwebassets\\Images\\DeleteIcon.png"
+    },
+    {
       "Id": "H:\\projects\\Diplom\\DiplomService\\wwwroot\\Images\\arrow.png",
       "PackagePath": "staticwebassets\\Images\\arrow.png"
     },
@@ -37,12 +45,20 @@
       "PackagePath": "staticwebassets\\favicon.ico"
     },
     {
+      "Id": "H:\\projects\\Diplom\\DiplomService\\wwwroot\\js\\EditUserScript.js",
+      "PackagePath": "staticwebassets\\js\\EditUserScript.js"
+    },
+    {
       "Id": "H:\\projects\\Diplom\\DiplomService\\wwwroot\\js\\EventApplication.js",
       "PackagePath": "staticwebassets\\js\\EventApplication.js"
     },
     {
       "Id": "H:\\projects\\Diplom\\DiplomService\\wwwroot\\js\\EventCreateScript.js",
       "PackagePath": "staticwebassets\\js\\EventCreateScript.js"
+    },
+    {
+      "Id": "H:\\projects\\Diplom\\DiplomService\\wwwroot\\js\\MapScript.js",
+      "PackagePath": "staticwebassets\\js\\MapScript.js"
     },
     {
       "Id": "H:\\projects\\Diplom\\DiplomService\\wwwroot\\js\\MeasureScript.js",
@@ -53,16 +69,12 @@
       "PackagePath": "staticwebassets\\js\\banUserClick.js"
     },
     {
-      "Id": "H:\\projects\\Diplom\\DiplomService\\wwwroot\\js\\scrollPopUp.js",
-      "PackagePath": "staticwebassets\\js\\scrollPopUp.js"
+      "Id": "H:\\projects\\Diplom\\DiplomService\\wwwroot\\js\\faqScript.js",
+      "PackagePath": "staticwebassets\\js\\faqScript.js"
     },
     {
-      "Id": "H:\\projects\\Diplom\\DiplomService\\wwwroot\\js\\searchInputPopUp.js",
-      "PackagePath": "staticwebassets\\js\\searchInputPopUp.js"
-    },
-    {
-      "Id": "H:\\projects\\Diplom\\DiplomService\\wwwroot\\js\\searchScript.js",
-      "PackagePath": "staticwebassets\\js\\searchScript.js"
+      "Id": "H:\\projects\\Diplom\\DiplomService\\wwwroot\\js\\newsScript.js",
+      "PackagePath": "staticwebassets\\js\\newsScript.js"
     },
     {
       "Id": "H:\\projects\\Diplom\\DiplomService\\wwwroot\\js\\showImage.js",
@@ -71,6 +83,14 @@
     {
       "Id": "H:\\projects\\Diplom\\DiplomService\\wwwroot\\js\\site.js",
       "PackagePath": "staticwebassets\\js\\site.js"
+    },
+    {
+      "Id": "H:\\projects\\Diplom\\DiplomService\\wwwroot\\js\\slideItemScript.js",
+      "PackagePath": "staticwebassets\\js\\slideItemScript.js"
+    },
+    {
+      "Id": "H:\\projects\\Diplom\\DiplomService\\wwwroot\\js\\switchDivisionExistence.js",
+      "PackagePath": "staticwebassets\\js\\switchDivisionExistence.js"
     },
     {
       "Id": "H:\\projects\\Diplom\\DiplomService\\wwwroot\\lib\\bootstrap\\LICENSE",

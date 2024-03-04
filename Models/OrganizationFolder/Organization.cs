@@ -1,6 +1,7 @@
 ﻿using DiplomService.Models.Users;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Text.Json.Serialization;
 
 namespace DiplomService.Models
 {
@@ -49,7 +50,9 @@ namespace DiplomService.Models
             return "application/octet-stream"; // Если формат неизвестен, вернуть по умолчанию
         }
 
+        [JsonIgnore]
         public virtual List<OrganizationUsers> OrganizationUsers { get; set; } = new List<OrganizationUsers>();
+        [JsonIgnore]
         public virtual List<Event> Events { get; set; } = new List<Event>();
     }
 }

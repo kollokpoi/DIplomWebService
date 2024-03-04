@@ -1,5 +1,8 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using Microsoft.AspNetCore.OpenApi;
+using Microsoft.AspNetCore.Http.HttpResults;
+using System.Text.Json.Serialization;
 
 namespace DiplomService.Models
 {
@@ -8,7 +11,7 @@ namespace DiplomService.Models
         [Key]
         public int Id { get; set; }
 
-        [DataType(DataType.Upload)]
+        
         public byte[]? PriviewImage { get; set; } = null;
 
         [MaxLength(40)]
@@ -33,11 +36,15 @@ namespace DiplomService.Models
         [Required]
         public bool DivisionsExist { get; set; } = true;
 
-
+        [JsonIgnore]
         public virtual List<Organization> Organizations { get; set; } = new();
+        [JsonIgnore]
         public virtual List<Measure> Measures { get; set; } = new();
+        [JsonIgnore]
         public virtual List<Division> Divisions { get; set; } = new();
+        [JsonIgnore]
         public virtual List<News> News { get; set; } = new();
+        [JsonIgnore]
         public virtual List<EventApplication>? EventApplications { get; set; }
 
         [NotMapped]

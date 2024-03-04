@@ -42,7 +42,7 @@
                         <img src="/Images/camara.png" alt="Image" class="item-block__image">
                     }
                     <p class="control-label name">Название: @item.Name</p>
-                    <p class="control-label">Основное место проведения: @item.MainPlace</p>
+                    <p class="control-label">Основное место проведения: @item.PlaceName</p>
                 </a>
             }
         
@@ -55,7 +55,7 @@
             Добавить подразделение
         </a>
         <div class="d-flex justify-content-between">
-             <a href="/Measures/Index/@Model.Id" class="btn btn-primary my-3 w-25">Назад</a>
+             <a href="/Measures/Index/@Model.Id" class="btn btn-primary my-3 w-25">Расписание</a>
              <a href="/Events/Publish/@Model.Id" class="btn btn-primary my-3 w-25">Опубликовать</a>
         </div>
 </div>

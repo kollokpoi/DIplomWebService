@@ -11,7 +11,7 @@ namespace DiplomService.ViewModels
         private IFormFile? imageFile = null;
 
         [Required(ErrorMessage = "Добавьте изображение")]
-
+        [Display(Name = "Изображение")]
         public IFormFile? ImageFile
         {
             get { return imageFile; }

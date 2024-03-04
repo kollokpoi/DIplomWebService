@@ -18,5 +18,9 @@ namespace DiplomService.Models
 
         [Required]
         public string? LastName { get; set; }
+
+        public byte[]? Image { get; set; }
+
+        public string GetFullName()=> $"{SecondName} {Name} {LastName}";
     }
 }

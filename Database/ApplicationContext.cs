@@ -15,6 +15,7 @@ namespace DiplomService.Database
         //readonly StreamWriter errorLogStream = new StreamWriter("logs/errorLog.txt", true);
 
         public DbSet<EventApplication> EventApplications { get; set; }
+        public DbSet<ApplicationData> ApplicationData { get; set; }
         public DbSet<Chat> Chats { get; set; }
         public DbSet<Division> Divisions { get; set; }
         public DbSet<Event> Events { get; set; }
@@ -22,6 +23,7 @@ namespace DiplomService.Database
         public DbSet<Organization> Organizations { get; set; }
         public DbSet<OrganizationApplication> OrganizationApplications { get; set; }
         public DbSet<News> News { get; set; }
+        public DbSet<DivisionUsers> DivisionUsers { get; set; }
 
         public DbSet<MobileUser> MobileUsers { get; set; }
         public DbSet<Administrator> Administrators { get; set; }
@@ -52,7 +54,8 @@ namespace DiplomService.Database
                   .HasMany(c => c.Organizations)
                   .WithMany(s => s.Events)
                   .UsingEntity(j => j.ToTable("EventOrganization"));
-            modelBuilder.Entity<IdentityUserLogin<string>>().HasKey(l => l.UserId); // Устанавливаем UserId как первичный ключ 
+
+            modelBuilder.Entity<IdentityUserLogin<string>>().HasKey(l => l.UserId);
 
 
             modelBuilder.Entity<Measure>()
@@ -76,6 +79,12 @@ namespace DiplomService.Database
                 .WithMany(m => m.MeasureDivisionsInfos)
                 .HasForeignKey(mdi => mdi.MeasureId)
                 .OnDelete(DeleteBehavior.NoAction);
+
+            modelBuilder.Entity<ApplicationData>()
+                .HasOne(ad => ad.Division)
+                .WithMany()
+                .HasForeignKey(ad => ad.DivisionId)
+                .OnDelete(DeleteBehavior.NoAction); 
         }
 
 

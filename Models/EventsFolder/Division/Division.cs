@@ -1,6 +1,7 @@
 ﻿using DiplomService.Models.EventsFolder.Division;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Text.Json.Serialization;
 
 namespace DiplomService.Models
 {
@@ -23,16 +24,21 @@ namespace DiplomService.Models
 
         public DateTime? DateOfEnd { get; set; } = null;
 
-        [Required]
-        [MaxLength(60)]
-        public string? MainPlace { get; set; }
-
+        [Range(-180,180)]
+        public double Longitude { get; set; }
+        [Range(-90, 90)]
+        public double Latitude { get; set; }
+        public string PlaceName { get; set; } = "";
 
         public int EventId { get; set; }
-        public virtual Event Event { get; set; } = new();
 
+        [JsonIgnore]
+        public virtual Event Event { get; set; } = new();
+        [JsonIgnore]
         public virtual List<MeasureDivisionsInfo> MeasureDivisionsInfos { get; set; } = new();
+        [JsonIgnore]
         public virtual List<DivisionUsers> DivisionMembers { get; set; } = new();
+
 
         [NotMapped]
         public string? MimeType { get { return GetImageMimeType(); } }

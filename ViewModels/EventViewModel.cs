@@ -10,12 +10,12 @@ namespace DiplomService.ViewModels
         public int Id { get; set; }
 
         [DataType(DataType.Upload)]
-        public byte[]? PriviewImage { get; set; } = null;
+        public byte[]? PriviewImage { get; set; }
 
         [Required(ErrorMessage = "Поле обязательно к заполнению.")]
         [MaxLength(40)]
         [Display(Name = "Название*")]
-        public string Name { get; set; }
+        public string Name { get; set; } = string.Empty;
 
         [Display(Name = "Описание")]
         public string? Description { get; set; }
@@ -34,6 +34,13 @@ namespace DiplomService.ViewModels
         [Required]
         [Display(Name = "Имеются ли направления*")]
         public bool DivisionsExist { get; set; } = true;
+
+        [Range(-180, 180)]
+        public double? Longitude { get; set; }
+        [Range(-90, 90)]
+        public double? Latitude { get; set; }
+        public string? PlaceName { get; set; }
+
 
         public virtual List<Division> Divisions { get; set; } = new();
         public virtual List<Organization> Organizations { get; set; } = new();
@@ -78,6 +85,7 @@ namespace DiplomService.ViewModels
                 }
             }
         }
-
+        [Display(Name = "Опубликовать новость о создании?")]
+        public bool CreateNews { get; set; } = true;
     }
 }

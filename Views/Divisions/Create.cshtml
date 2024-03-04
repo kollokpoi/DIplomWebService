@@ -4,7 +4,14 @@
     ViewData["Title"] = "Create";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
+@{
+    string min = $"{Model.StartDate.Day}.{Model.StartDate.Month}.{Model.StartDate.Year}";
+    string max = "";
+    if (Model.EndDate != null)
+    {
+        max = $"{Model.EndDate.Value.Day}.{Model.EndDate.Value.Month}.{Model.EndDate.Value.Year}";
+    }
+}
 <div class="intro" style="height:40vh">
     <div class="intro__column">
         <p class="title-text">Заполните данные об организуемом мероприятии</p>
@@ -15,37 +22,71 @@
     <form id="eventForm" class="eventPage" enctype="multipart/form-data" method="post">
         <p class="display-6">Заполните основную информацию</p>
         <input type="hidden" asp-for="EventId" />
-        <input type="hidden" asp-for="EndDate" />
-        <input type="hidden" asp-for="StartDate" />
-
         <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-        <div class="form-group my-2">
-            <label asp-for="@Model.Name" class="control-label">Название</label>
-            <input asp-for="@Model.Name" class="login-form__input form-control" />
-            <span asp-validation-for="@Model.Name" class="text-danger"></span>
-        </div>
 
-        <div class="my-2">
-            <label asp-for="@Model.PreviewImageFile" class="control-label"></label>
-            <div class="form-group d-flex align-items-center">
-                <img src="/Images/camara.png" alt="Image" id="previewImage" class="item-block__image me-4">
-                <div>
-                    <input asp-for="@Model.PreviewImageFile" id="previewImageButton" accept=".png, .jpg, .jpeg" type="file" placeholder="" />
+        <div class="d-flex align-items-center">
+            <div class="my-2 me-2">
+                <label asp-for="PreviewImageFile" class="control-label"></label>
+                <div class="form-group">
+                    @{
+                        @if (Model is not null && Model.PriviewImage is not null)
+                        {
+                            string? mimeType = Model.MimeType; // MIME-тип по умолчанию
+
+                            if (mimeType is not null)
+                            {
+                                <img src="data:@mimeType;base64,@Convert.ToBase64String(Model.PriviewImage)" id="previewImage" alt="Image" class="item-block__image">
+                            }
+                        }
+                        else
+                        {
+                            <img src="/Images/camara.png" alt="Image" id="previewImage" class="item-block__image">
+                        }
+                    }
+                    <div>
+                        <input asp-for="PreviewImageFile" style="display:none" id="previewImageButton" accept=".png, .jpg, .jpeg" class="btn" type="file" placeholder="" />
+                        <p onclick="document.getElementById('previewImageButton').click()" class="login-form__submit pointer-event text-center">Выберите файл</p>
+                    </div>
+                </div>
+                <span asp-validation-for="PreviewImageFile" class="text-danger"></span>
+            </div>
+            <div class="w-100">
+                   <div class="form-group my-2">
+                    <label asp-for="Name" class="control-label">Название</label>
+                    <input asp-for="Name" class="login-form__input form-control" />
+                    <span asp-validation-for="Name" class="text-danger"></span>
+                    </div>
+
+
+                <div class="form-group my-2">
+                    <label asp-for="Description" class="control-label">Описание</label>
+                    <textarea asp-for="Description" class="login-form__input form-control"></textarea>
+                    <span asp-validation-for="Description" class="text-danger"></span>
+                </div>
+                <div class="form-group my-2">
+                    <label asp-for="PlaceName" class="control-label">Основное место проведения*</label>
+                    <input asp-for="PlaceName" class="login-form__input form-control" />
+
                 </div>
             </div>
-            <span asp-validation-for="PreviewImageFile" class="text-danger"></span>
+
+        </div>
+        <div class="form-group my-2">
+            <input type="hidden" asp-for="Longitude" />
+            <input type="hidden" asp-for="Latitude" />
+            <div id="map"></div>
+            <span asp-validation-for="PlaceName" class="text-danger"></span>
         </div>
 
         <div class="form-group my-2">
-            <label asp-for="@Model.Description" class="control-label">Описание</label>
-            <textarea asp-for="@Model.Description" class="login-form__input form-control"></textarea>
-            <span asp-validation-for="@Model.Description" class="text-danger"></span>
+            <label asp-for="StartDate" class="control-label">Дата начала*</label>
+            <input asp-for="StartDate" class="login-form__input form-control" type="datetime-local"/>
+            <span asp-validation-for="StartDate" class="text-danger"></span>
         </div>
-
         <div class="form-group my-2">
-            <label asp-for="@Model.MainPlace" class="control-label">Основное место проведения*</label>
-            <textarea asp-for="@Model.MainPlace" class="login-form__input form-control"></textarea>
-            <span asp-validation-for="@Model.MainPlace" class="text-danger"></span>
+            <label asp-for="EndDate" class="control-label">Дата окончания</label>
+            <input asp-for="EndDate" class="login-form__input form-control" type="datetime-local" />
+            <span asp-validation-for="EndDate" class="text-danger"></span>
         </div>
 
         @{
@@ -193,7 +234,7 @@
                                     <div class="d-flex align-items-center">
                                         <div class="form-group my-2 dateOfMeasureTimeBlock">
                                             <label asp-for="Measures[i].MeasureDates[j].Datetime" class="control-label">Укажите дату и время</label>
-                                            <input asp-for="Measures[i].MeasureDates[j].Datetime" type="datetime-local" class="login-form__input form-control" />
+                                            <input asp-for="Measures[i].MeasureDates[j].Datetime" min="@min" max="@max" type="datetime-local" class="login-form__input form-control" />
                                             <span asp-validation-for="Measures[i].MeasureDates[j].Datetime" class="text-danger"></span>
                                         </div>
                                         <div class="form-group ms-3 dateOfMeasurePlaceBlock">
@@ -234,6 +275,8 @@
         await Html.RenderPartialAsync("_ValidationScriptsPartial");
         <script src="~/js/showImage.js" asp-append-version="true"></script>
         <script src="~/js/MeasureScript.js" asp-append-version="true"></script>
+        <script src="https://api-maps.yandex.ru/2.1/?apikey=375cc711-8399-4720-be09-5496b07e2890&lang=ru_RU" type="text/javascript"></script>
+        <script src="~/js/MapScript.js" asp-append-version="true"></script>
     }
 }
 

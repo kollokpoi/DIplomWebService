@@ -276,3 +276,9 @@ H:\projects\Diplom\DiplomService\bin\Debug\net7.0\Microsoft.AspNetCore.Identity.
 H:\projects\Diplom\DiplomService\bin\Debug\net7.0\Microsoft.Extensions.Identity.Core.dll
 H:\projects\Diplom\DiplomService\bin\Debug\net7.0\Microsoft.Extensions.Identity.Stores.dll
 H:\projects\Diplom\DiplomService\bin\Debug\net7.0\Microsoft.Extensions.Options.dll
+H:\projects\Diplom\DiplomService\bin\Debug\net7.0\Microsoft.AspNetCore.OpenApi.dll
+H:\projects\Diplom\DiplomService\bin\Debug\net7.0\Microsoft.OpenApi.dll
+H:\projects\Diplom\DiplomService\bin\Debug\net7.0\Swashbuckle.AspNetCore.Swagger.dll
+H:\projects\Diplom\DiplomService\bin\Debug\net7.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+H:\projects\Diplom\DiplomService\bin\Debug\net7.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+H:\projects\Diplom\DiplomService\obj\Debug\net7.0\DiplomService.MvcApplicationPartsAssemblyInfo.cs

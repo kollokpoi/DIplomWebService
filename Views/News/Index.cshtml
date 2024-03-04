@@ -6,7 +6,7 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 @{
-    bool eventNews = Model.EventId != null;
+    bool eventNews = Model.EventId is not null;
 }
 <div class="intro">
     <div class="intro__column">
@@ -36,10 +36,10 @@
     </div>
     @foreach (var item in Model.News)
     {
-        <a asp-action="Details" asp-route-id="@item?.Id" class="item-block">
+        <a href="/News/Details/@item.Id" class="item-block my-2">
             @if (item.Image != null)
             {
-                string? mimeType = item.MimeType; // MIME-тип по умолчанию
+                string? mimeType = item.MimeType;
 
                 if (mimeType != null)
                 {

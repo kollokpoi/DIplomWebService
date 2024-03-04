@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Text.Json.Serialization;
 
 namespace DiplomService.Models
 {
@@ -9,7 +10,7 @@ namespace DiplomService.Models
     {
         [Key]
         public int Id { get; set; }
-
+        public byte[]? Icon { get; set; }
         [Required(ErrorMessage = "Не указано имя")]
         public string Name { get; set; } = "";
 
@@ -32,6 +33,7 @@ namespace DiplomService.Models
 
         [Required]
         [ForeignKey("EventId")]
+        [JsonIgnore]
         public virtual Event? Event { get; set; } = new();
         public virtual List<MeasureDivisionsInfo> MeasureDivisionsInfos { get; set; } = new();
     }

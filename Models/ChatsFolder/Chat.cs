@@ -1,5 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Text.Json.Serialization;
 
 namespace DiplomService.Models
 {
@@ -12,12 +13,14 @@ namespace DiplomService.Models
 
         [Required]
         [ForeignKey("FirstUserId")]
+        [JsonIgnore]
         public virtual User? FirstUser { get; set; }
 
         public string SecondUserId { get; set; } = "";
 
         [Required]
         [ForeignKey("SecondUserId")]
+        [JsonIgnore]
         public virtual User? SecondUser { get; set; }
 
         private int typeId = 2;
