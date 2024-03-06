@@ -47,6 +47,7 @@
         <a href="/Measures/Create/@eventId" class="btn btn-primary w-25 mt-3">
                 Добавить мероприятие
         </a>
+
         <div class="d-flex justify-content-between">
             @{
                 string submitValue = Model.DivisionsExist ? "Далее" : "Опубликовать";
@@ -57,6 +58,26 @@
         </div>
     }
 </div>
+@section Faq {
+    <div id="faq">
+    </div>
+    <div id="faq-body">
+        <p class="h5 fw-bold">Расписание</p>
+        <p class=" h6 fw-bold">На этой странице будут отображатся созданные мероприятия.</p>
+        <p class="fw-bold">Добавление:</p>
+        <ul>
+            <li>
+                Нажмите кнопку "Добавить мероприятие".
+            </li>
+            <li>
+                Заполните информацию на странице, на которую перейдете.
+            </li>
+            <li>
+                Добавьте все требуемые мероприятия и нажмите "@submitValue".
+            </li>
+        </ul>
+    </div>
+}
 @section Scripts{
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/js/searchScript.js"></script>

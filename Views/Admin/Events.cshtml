@@ -1,10 +1,23 @@
-﻿@{
-    Layout = "_CabinetLayout";
+﻿@model IEnumerable<DiplomService.Models.Event>
+@{
+    Layout = "_Layout";
+}
+@section Styles {
+    <link rel="stylesheet" href="~/css/cabinetstyle.css" asp-append-version="true" />
 }
 
-@model IEnumerable<DiplomService.Models.Event>
+<div class="intro" style="height:40vh">
+    <div class="intro__column">
+        <p class="title-text">События.</p>
+    </div>
+</div>
 
 
+
+<div class="container">
+    <div class="navigation-block">
+        <partial name="_NavPartial" />
+    </div>
     <div class="circled-search__block">
         <input type="text" class="circled-search__input">
     </div>
@@ -26,7 +39,7 @@
                 <img src="/Images/camara.png" alt="Image" class="item-block__image">
             }
             <div class="item-block__column">
-            <p class="item-block__title name">@item.Name</p>
+                <p class="item-block__title name">@item.Name</p>
                 <p class="item-block__text">
                     Организатор:
                     @{
@@ -44,12 +57,10 @@
                         if (item.DateOfEnd != null)
                         {
                             @item.DateOfEnd.Value.ToShortDateString()
-                            ;
                         }
                         else
                         {
                             @("Не указана")
-                            ;
                         }
                     }
                 </p>
@@ -57,7 +68,11 @@
             </div>
         </a>
     }
-@section Scripts{
+
+</div>
+    
+
+@section Scripts {
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/js/searchScript.js"></script>
     <script src="~/js/searchInputPopUp.js"></script>

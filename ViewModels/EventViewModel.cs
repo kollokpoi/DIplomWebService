@@ -26,11 +26,9 @@ namespace DiplomService.ViewModels
 
         [Display(Name = "Дата окончания")]
         public DateTime? DateOfEnd { get; set; }
-
         [Required]
         [Display(Name = "Является ли событие публичным*")]
         public bool PublicEvent { get; set; } = true;
-
         [Required]
         [Display(Name = "Имеются ли направления*")]
         public bool DivisionsExist { get; set; } = true;
@@ -85,7 +83,5 @@ namespace DiplomService.ViewModels
                 }
             }
         }
-        [Display(Name = "Опубликовать новость о создании?")]
-        public bool CreateNews { get; set; } = true;
     }
 }

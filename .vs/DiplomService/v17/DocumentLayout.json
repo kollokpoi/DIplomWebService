@@ -1,0 +1,130 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "H:\\projects\\Diplom\\DiplomService\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{29F85887-ED18-4D98-B461-08078551CFC0}|DiplomService.csproj|h:\\projects\\diplom\\diplomservice\\views\\measures\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{29F85887-ED18-4D98-B461-08078551CFC0}|DiplomService.csproj|solutionrelative:views\\measures\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{29F85887-ED18-4D98-B461-08078551CFC0}|DiplomService.csproj|h:\\projects\\diplom\\diplomservice\\views\\measures\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{29F85887-ED18-4D98-B461-08078551CFC0}|DiplomService.csproj|solutionrelative:views\\measures\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{29F85887-ED18-4D98-B461-08078551CFC0}|DiplomService.csproj|h:\\projects\\diplom\\diplomservice\\views\\organizationuser\\organizationevents.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{29F85887-ED18-4D98-B461-08078551CFC0}|DiplomService.csproj|solutionrelative:views\\organizationuser\\organizationevents.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{29F85887-ED18-4D98-B461-08078551CFC0}|DiplomService.csproj|h:\\projects\\diplom\\diplomservice\\controllers\\servicecontrollers\\organizationscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{29F85887-ED18-4D98-B461-08078551CFC0}|DiplomService.csproj|solutionrelative:controllers\\servicecontrollers\\organizationscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{29F85887-ED18-4D98-B461-08078551CFC0}|DiplomService.csproj|h:\\projects\\diplom\\diplomservice\\wwwroot\\css\\style.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{29F85887-ED18-4D98-B461-08078551CFC0}|DiplomService.csproj|solutionrelative:wwwroot\\css\\style.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{29F85887-ED18-4D98-B461-08078551CFC0}|DiplomService.csproj|h:\\projects\\diplom\\diplomservice\\viewmodels\\eventviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{29F85887-ED18-4D98-B461-08078551CFC0}|DiplomService.csproj|solutionrelative:viewmodels\\eventviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 3,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{b1e99781-ab81-11d0-b683-00aa00a3ee26}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:129:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "OrganizationEvents.cshtml",
+              "DocumentMoniker": "H:\\projects\\Diplom\\DiplomService\\Views\\OrganizationUser\\OrganizationEvents.cshtml",
+              "RelativeDocumentMoniker": "Views\\OrganizationUser\\OrganizationEvents.cshtml",
+              "ToolTip": "H:\\projects\\Diplom\\DiplomService\\Views\\OrganizationUser\\OrganizationEvents.cshtml",
+              "RelativeToolTip": "Views\\OrganizationUser\\OrganizationEvents.cshtml",
+              "ViewState": "AQIAAAkAAAAAAAAAAADwv1EAAAAOAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-03-05T22:12:50.774Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Create.cshtml",
+              "DocumentMoniker": "H:\\projects\\Diplom\\DiplomService\\Views\\Measures\\Create.cshtml",
+              "RelativeDocumentMoniker": "Views\\Measures\\Create.cshtml",
+              "ToolTip": "H:\\projects\\Diplom\\DiplomService\\Views\\Measures\\Create.cshtml",
+              "RelativeToolTip": "Views\\Measures\\Create.cshtml",
+              "ViewState": "AQIAAA8AAAAAAAAAAAAAACgBAABqAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-03-05T21:55:11.879Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "EventViewModel.cs",
+              "DocumentMoniker": "H:\\projects\\Diplom\\DiplomService\\ViewModels\\EventViewModel.cs",
+              "RelativeDocumentMoniker": "ViewModels\\EventViewModel.cs",
+              "ToolTip": "H:\\projects\\Diplom\\DiplomService\\ViewModels\\EventViewModel.cs",
+              "RelativeToolTip": "ViewModels\\EventViewModel.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAIBJwFQAAAAJAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-05T21:38:10.487Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "OrganizationsController.cs",
+              "DocumentMoniker": "H:\\projects\\Diplom\\DiplomService\\Controllers\\ServiceControllers\\OrganizationsController.cs",
+              "RelativeDocumentMoniker": "Controllers\\ServiceControllers\\OrganizationsController.cs",
+              "ToolTip": "H:\\projects\\Diplom\\DiplomService\\Controllers\\ServiceControllers\\OrganizationsController.cs",
+              "RelativeToolTip": "Controllers\\ServiceControllers\\OrganizationsController.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAD4AAAAMAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-05T18:45:56.51Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "H:\\projects\\Diplom\\DiplomService\\Views\\Measures\\Index.cshtml",
+              "RelativeDocumentMoniker": "Views\\Measures\\Index.cshtml",
+              "ToolTip": "H:\\projects\\Diplom\\DiplomService\\Views\\Measures\\Index.cshtml",
+              "RelativeToolTip": "Views\\Measures\\Index.cshtml",
+              "ViewState": "AQIAACcAAAAAAAAAAADwv0MAAAACAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-03-05T21:26:42.52Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "style.css",
+              "DocumentMoniker": "H:\\projects\\Diplom\\DiplomService\\wwwroot\\css\\style.css",
+              "RelativeDocumentMoniker": "wwwroot\\css\\style.css",
+              "ToolTip": "H:\\projects\\Diplom\\DiplomService\\wwwroot\\css\\style.css",
+              "RelativeToolTip": "wwwroot\\css\\style.css",
+              "ViewState": "AQIAABICAAAAAAAAAAAcwCkCAAAQAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2024-03-05T20:06:46.041Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

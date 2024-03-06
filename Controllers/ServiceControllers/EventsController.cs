@@ -176,20 +176,6 @@ namespace DiplomService.Controllers
                         PlaceName = EventViewModel.PlaceName??""
                     });
                 }
-                string imagePath = Path.Combine(_webHostEnvironment.WebRootPath, "Images", "CreatedImage.png");
-                if (EventViewModel.CreateNews)
-                {
-                    var createNews = new News()
-                    {
-                        Event = newEvent,
-                        EventId = newEvent.Id,
-                        DateTime = DateTime.Now,
-                        Description = $"Новое событие {newEvent.Name} добавлено. Нажмите для подробностей",
-                        Image = System.IO.File.ReadAllBytes(imagePath),
-                        Title = $"Новое событие {newEvent.Name}",
-                    };
-                    newEvent.News.Add(createNews);
-                }
 
                 await _context.SaveChangesAsync();
                 return RedirectToAction("Index", controllerName: "Measures", new { Id = newEvent.Id });
@@ -328,19 +314,20 @@ namespace DiplomService.Controllers
             var @event = await _context.Events.FirstOrDefaultAsync(x => x.Id == id);
             if (@event != null)
             {
-                var News = new News()
+                string imagePath = Path.Combine(_webHostEnvironment.WebRootPath, "Images", "CreatedImage.png");
+                if (@event.PublicEvent)
                 {
-                    Id = @event.Id,
-                    Event = @event,
-                    EventId = @event.Id,
-                    Title = $"Событие {@event.Name.ToLower()} создано.",
-                    Description = "Событие создано. Теперь есть возможность принять участие.",
-                    Author = "Система",
-                    DateTime = DateTime.Now,
-                    Sections = new()
-                };
-
-                
+                    var createNews = new News()
+                    {
+                        Event = @event,
+                        EventId = @event.Id,
+                        DateTime = DateTime.Now,
+                        Description = $"Новое событие {@event.Name} добавлено. Нажмите для подробностей",
+                        Image = System.IO.File.ReadAllBytes(imagePath),
+                        Title = $"Новое событие {@event.Name}",
+                    };
+                    @event.News.Add(createNews);
+                }
 
                 @event.ReadyToShow = true;
                 await _context.SaveChangesAsync();

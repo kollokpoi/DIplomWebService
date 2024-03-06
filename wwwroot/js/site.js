@@ -20,7 +20,6 @@
         var $input = $(this);
         var $block = $input.closest(".circled-search__block");
 
-        // Проверяем, есть ли текст в input
         if ($input.val().trim() === "") {
             $block.removeClass("focused");
         }
@@ -32,10 +31,10 @@
 
         if (scrollTop > 100) {
             // Показать кнопку
-            $('.fixed-block').fadeIn();
+            $('.fixed-block__image').fadeIn();
         } else {
             // Скрыть кнопку
-            $('.fixed-block').fadeOut();
+            $('.fixed-block__image').fadeOut();
         }
         // При нажатии на кнопку
         $('.fixed-block').click(function () {
@@ -70,6 +69,6 @@
     });
 
     $("#faq").click(function () {
-        $("#faq-body").slideToggle();
+        $("#faq-body").toggleClass('visible');
     })
 });

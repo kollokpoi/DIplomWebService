@@ -102,6 +102,7 @@ namespace DiplomService.Controllers.ServiceControllers
         }
 
         [Authorize]
+        [HttpPost]
         public async Task<ActionResult> EditPassword(UpdatePasswordViewModel model)
         {
             if (!ModelState.IsValid)

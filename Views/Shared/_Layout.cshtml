@@ -43,12 +43,19 @@
         </div>
     </header>
     @RenderBody()
-    <a href="#" class="fixed-block"></a>
+    
+    <div class ="fixed-block">
+        @await RenderSectionAsync("Faq", false)
+        <a href="#" class="fixed-block__image"></a>
+    </div>
+    
     <footer class="border-top footer text-muted">
         <div class="container">
             &copy; 2023 - DiplomService - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
         </div>
     </footer>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="/js/site.js"></script>
     @RenderSection("Scripts",false)
 </body>
 </html>

@@ -18,7 +18,6 @@ namespace DiplomService.Controllers
             _context = context;
         }
 
-        // GET: Measures
         public async Task<IActionResult> Index(int Id)
         {
             var @event = await _context.Events.FirstOrDefaultAsync(x => x.Id == Id);
@@ -28,7 +27,6 @@ namespace DiplomService.Controllers
             return View(@event);
         }
 
-        // GET: Measures/Details/5
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null || _context.Measures == null)
@@ -47,7 +45,6 @@ namespace DiplomService.Controllers
             return View(measure);
         }
 
-        // GET: Measures/Create
         public async Task<IActionResult> Create(int id)
         {
             var @event = await _context.Events.FirstOrDefaultAsync(@event => @event.Id == id);
@@ -495,7 +492,6 @@ namespace DiplomService.Controllers
             return View(model);
         }
 
-
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Delete(int? id)
@@ -518,9 +514,6 @@ namespace DiplomService.Controllers
 
             return RedirectToAction(nameof(Index), new { Id = measure.EventId });
         }
-
-        // POST: Measures/Delete/5
-
 
         private bool MeasureExists(int id)
         {

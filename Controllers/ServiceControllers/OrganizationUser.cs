@@ -41,21 +41,20 @@ namespace DiplomService.Controllers.ServiceControllers
 
             return View();
         }
+
         public async Task<IActionResult> OrganizationEvents()
         {
             var organizationUser = await _userManager.GetUserAsync(User) as OrganizationUsers;
 
-            if (organizationUser != null)
-            {
-                var organization = organizationUser.Organization;
+            if (organizationUser is null)
+                return BadRequest();
 
-                var model = _context.Events.Where(x => x.Organizations.Contains(organization)).ToList();
+            var organization = organizationUser.Organization;
+            var model = _context.Events.Where(x => x.Organizations.Contains(organization)).ToList();
 
-                return View(model);
-            }
-
-            return BadRequest();
+            return View(model);
         }
+
         public async Task<IActionResult> OrganizationUsers()
         {
             var organizationUser = await _userManager.GetUserAsync(User) as OrganizationUsers;

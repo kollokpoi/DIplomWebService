@@ -85,7 +85,14 @@ function init() {
     }
 
     let longitude = parseFloat($('#Longitude').val().replace(',', '.')), latintude = parseFloat($('#Latitude').val().replace(',', '.'));
-    if (longitude == 0  && latintude == 0) {
+    if ((longitude >= 0 || longitude <= 180) && (latintude > -90 || latintude < 90)) {
+        let coords = [latintude, longitude];
+        myMap.setCenter(coords);
+        myPlacemark = createPlacemark(coords);
+        myMap.geoObjects.add(myPlacemark);
+        getAddress(coords);
+        
+    } else {
         if (navigator.geolocation) {
             navigator.geolocation.getCurrentPosition(function (position) {
                 console.log(position);
@@ -96,12 +103,5 @@ function init() {
         } else {
             alert("Geolocation is not supported by this browser.");
         }
-    } else {
-        let coords = [latintude, longitude];
-        myMap.setCenter(coords);
-        myPlacemark = createPlacemark(coords);
-        myMap.geoObjects.add(myPlacemark);
-        getAddress(coords);
-        
     }
 }
