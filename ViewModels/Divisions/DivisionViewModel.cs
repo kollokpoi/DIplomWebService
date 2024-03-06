@@ -18,8 +18,10 @@ namespace DiplomService.ViewModels.Divisions
         public string Name { get; set; } = "";
         public string? Description { get; set; } = "";
 
-        public double Longitude { get; set; }
-        public double Latitude { get; set; }
+        [Range(-180, 180)]
+        public double? Longitude { get; set; }
+        [Range(-90, 90)]
+        public double? Latitude { get; set; }
         public string PlaceName { get; set; } = "";
 
         public List<MeasureViewModel> Measures { get; set; } = new();

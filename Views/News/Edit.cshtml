@@ -5,16 +5,13 @@
     ViewData["Title"] = "Create";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-<div class="intro">
+<div class="intro" style="height:40vh;">
     <div class="intro__column">
         <p class="title-text">Добавление новости о событии @Model.EventName</p>
     </div>
 </div>
 <div class="container">
-    <div id="faq">
-    </div>
-    <div id="faq-body">
-    </div>
+
     <form asp-action="Edit" method="post" enctype="multipart/form-data">
         <input type="hidden" asp-for="EventId" />
         <input type="hidden" asp-for="Id" />
@@ -23,7 +20,7 @@
             <p class="display-6 fw-bold" title="Эта часть будет отображаться на странице с новостями">Основная часть</p>
             <div class="d-flex align-items-center">
                 <div class="my-2 me-2">
-                    <label asp-for="ImageFile" class="control-label">Изображение</label>
+                    <label asp-for="ImageFile" class="control-label fw-bold">Изображение</label>
                     <div class="form-group">
                         @{
                             @if (Model is not null && Model.PriviewImage is not null)
@@ -65,7 +62,7 @@
                     <input type="hidden" asp-for="Sections[i].Id" />
                     
                     <div class="my-2 me-2">
-                        <label asp-for="Sections[i].ImageFile" class="control-label"></label>
+                        <label asp-for="Sections[i].ImageFile" class="control-label fw-bold"></label>
                         <div class="form-group">
                             @{
                                 @if (Model is not null && Model.Sections[i].Image is not null)
@@ -118,7 +115,17 @@
     </form>
 </div>
 
-
+@section Faq {
+    <div id="faq">
+    </div>
+    <div id="faq-body">
+        <p class="h5 fw-bold">Описание:</p>
+        <p class="fw-bold">"Основная часть":</p>
+        <p>Эта часть и информация в ней будет отображена в списке новостей главной страницы и странице новостей события</p>
+        <p class="fw-bold">"Подзаголовки":</p>
+        <p>Это блоки, предназначенные для группировки информации и позволяют разделить всю новость по частям.</p>
+    </div>
+}
 @section Scripts {
     @{
         await Html.RenderPartialAsync("_ValidationScriptsPartial");

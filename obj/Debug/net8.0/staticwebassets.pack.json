@@ -29,6 +29,10 @@
       "PackagePath": "staticwebassets\\Images\\messageBackImage.png"
     },
     {
+      "Id": "H:\\projects\\Diplom\\DiplomService\\wwwroot\\Images\\questionIcon.png",
+      "PackagePath": "staticwebassets\\Images\\questionIcon.png"
+    },
+    {
       "Id": "H:\\projects\\Diplom\\DiplomService\\wwwroot\\Images\\userImage.png",
       "PackagePath": "staticwebassets\\Images\\userImage.png"
     },

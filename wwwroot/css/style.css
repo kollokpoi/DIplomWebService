@@ -434,6 +434,7 @@ header {
 }
 .measureTitle {
     position: relative;
+    margin:20px 0;
     cursor: pointer;
     -moz-transition: .5s;
     -o-transition: .5s;
@@ -443,7 +444,7 @@ header {
 .measureTitle::after {
     position: absolute;
     content: '';
-    top: 85%;
+    top: 95%;
     display: block;
     width: 86%;
     background: var(--accent-color);
@@ -535,9 +536,10 @@ a:hover{
     -moz-border-radius: 25%;
     -webkit-border-radius: 25%;
     border-radius: 50%;
-    background: lightgray;
-    height: 40px;
-    width: 40px;
+    background: url(/Images/questionIcon.png) center no-repeat;
+    background-size:contain;
+    height: 50px;
+    width: 50px;
     margin-top: 10px;
     cursor: pointer;
     overflow: visible;

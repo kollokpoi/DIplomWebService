@@ -25,7 +25,7 @@ namespace DiplomService.Controllers
 
             if (id is null)
             {
-                var list = await _context.News.Where(x => x.Event.PublicEvent).ToListAsync();
+                var list = await _context.News.Where(x => x.Event.PublicEvent).OrderByDescending(x=>x.DateTime).ToListAsync();
                 model.News = list;
             }
             else
@@ -36,7 +36,7 @@ namespace DiplomService.Controllers
                 if (@event != null)
                     model.EventName = @event.Name;
 
-                model.News = await _context.News.Where(x => x.EventId == id).ToListAsync();
+                model.News = await _context.News.Where(x => x.EventId == id).OrderByDescending(x => x.DateTime).ToListAsync();
 
 
                 if (model == null)
@@ -126,7 +126,7 @@ namespace DiplomService.Controllers
                 }
             }
 
-            @event.News.Add(newNews);
+            _context.News.Add(newNews);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index), new { Id = model.EventId});
         }
@@ -166,6 +166,7 @@ namespace DiplomService.Controllers
             }
             return View(model);
         }
+
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(NewsViewModel model)
@@ -224,9 +225,26 @@ namespace DiplomService.Controllers
             return RedirectToAction(nameof(Details), new {Id = model.Id});
         }
 
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Delete(int id)
+        {
+            if (!ModelState.IsValid)
+                return RedirectToAction(nameof(Details), new { id });
+
+            var news = await _context.News.FirstOrDefaultAsync(x=>x.Id==id);
+            if (news is null)
+                return BadRequest();
+
+            if (!await UserAccessed(news.Event))
+                return Unauthorized();
+
+            _context.News.Remove(news);
+            await _context.SaveChangesAsync();
+            return RedirectToAction(nameof(Index), new { Id = news.EventId });
+        }
         public  IActionResult GetParticipantEntry( int Index)
         {
-
             ViewBag.Index = Index;
             return PartialView("_NewsSectionEntry", Index);
         }

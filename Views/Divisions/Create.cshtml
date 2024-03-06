@@ -93,7 +93,7 @@
             for (int i = 0; i < Model.Measures.Count; i++)
             {
                 <input type="hidden" asp-for="Measures[i].Id"/>
-                <p class="measureTitle">@Model.Measures[i].Name</p>
+                <p class="measureTitle h4 fw-bold">@Model.Measures[i].Name</p>
                 <div class="datesBlock">
                     <div class="form-group my-2">
                         <label asp-for="Measures[i].Length" class="control-label">Продолжительность*</label>
@@ -268,7 +268,37 @@
     </div>
 </div>
 
+@section Faq {
+    <div id="faq">
+    </div>
+    <div id="faq-body">
+        <p class="h5 fw-bold">Описание полей:</p>
+        <p class="fw-bold">"Основное место проведения"</p>
+        <p>Укажите на карте место, в котором должно проводиться направление</p>
 
+        <p class="fw-bold h4">Настройка мероприятий</p>
+        <p class="fw-bold">"Продолжительность"</p>
+        <p>Укажите, сколько должно длиться мероприятие</p>
+        <p class="fw-bold">"Частота проведения"</p>
+        <ul>
+            <li>
+                Одноразовое - событие произойдет только один раз, дату и время проведения которого потребуется указать. Например, награждение
+            </li>
+            <li>
+                Повторяющееся - мероприятие будет проводиться несколько раз, для чего потребуется настроить дни повторения.
+                <p class="fw-bold">"Режим выбора дат"</p>
+                <ul>
+                    <li>
+                        Даты - потребуется указать конкретные, даты, в которое будет проводиться мероприятие.
+                    </li>
+                    <li>
+                        Дни недели - выберите дни недели, в которые будет проводиться мероприятие и укажите время.
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+}
 
 @section Scripts{
     @{

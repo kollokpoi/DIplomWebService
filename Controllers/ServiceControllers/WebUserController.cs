@@ -1,5 +1,6 @@
 ﻿using DiplomService.Database;
 using DiplomService.Models;
+using DiplomService.Models.Users;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
@@ -20,7 +21,18 @@ namespace DiplomService.Controllers.ServiceControllers
             _signInManager = signInManager;
         }
 
-        public ActionResult Applications() => RedirectToAction("Index", "EventApplications");
+        public async Task<ActionResult> Applications()
+        {
+            var webUser = await _userManager.GetUserAsync(User) as WebUser;
+
+            if (webUser is null)
+                return BadRequest();
+
+            var model = _context.EventApplications.Where(x => x.ApplicationSender == webUser).ToList();
+
+
+            return View(model);
+        } 
         public ActionResult About() => View();
     }
 }

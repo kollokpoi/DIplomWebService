@@ -89,9 +89,22 @@
     </div>
 </div>
 
-
-
-
+@section Faq {
+    <div id="faq">
+    </div>
+    <div id="faq-body">
+        <p class="h5 fw-bold">Для изменения данных:</p>
+        <ul>
+            <li>
+                Обновите значения в полях
+            </li>
+            <li>
+                Нажмите "Сохранить"
+            </li>
+        </ul>
+        <p class="fw-bold">Для смены пароля нажмите соответствующую кнопку под изображением</p>
+    </div>
+}
 @section Scripts{
     @{
         await Html.RenderPartialAsync("_ValidationScriptsPartial");

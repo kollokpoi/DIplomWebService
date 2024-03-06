@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "k6xKBQS6Tc4hzhRQl1HpiC7G+MrWFq7fuGGwdEijtY0=",
+  "Hash": "eK7lJfH43EH35RwRF/JHV+F4jD6KIMxacZwBkd8eRAQ=",
   "Source": "DiplomService",
   "BasePath": "_content/DiplomService",
   "Mode": "Default",
@@ -224,6 +224,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\Images\\messageBackImage.png"
+    },
+    {
+      "Identity": "H:\\projects\\Diplom\\DiplomService\\wwwroot\\Images\\questionIcon.png",
+      "SourceId": "DiplomService",
+      "SourceType": "Discovered",
+      "ContentRoot": "H:\\projects\\Diplom\\DiplomService\\wwwroot\\",
+      "BasePath": "_content/DiplomService",
+      "RelativePath": "Images/questionIcon.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Images\\questionIcon.png"
     },
     {
       "Identity": "H:\\projects\\Diplom\\DiplomService\\wwwroot\\Images\\userImage.png",

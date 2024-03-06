@@ -16,7 +16,12 @@
         <a asp-action="Index" class="link-arrow left">Все события</a>
         <a asp-action="Index" asp-controller="News" asp-route-Id="@Model.Id" class="link-arrow right">Новости</a>
     </div>
-    
+    @if (ViewBag.Editer is not null && ViewBag.Editer is true)
+    {
+        <div class="d-flex w-100 justify-content-end">
+            <a asp-action="Edit" asp-controller="Events" asp-route-id="@Model.Id" class="d-block login-form__submit">Редактировать</a>
+        </div>
+    }
     <div class="d-flex endHiden image-text_block align-items-center mb-3">
         @if (Model.PriviewImage != null)
         {
@@ -36,13 +41,6 @@
             <p>@Model.Description</p>
         </div>
     </div>
-   
-    @if (ViewBag.Editer is not null && ViewBag.Editer is true)
-    {
-        <div class="d-flex justify-content-between align-items-center">
-            <a asp-action="Edit" asp-controller="Divisions" asp-route-id="@Model.Id" class="btn-success d-block login-form__submit">Редактировать</a>
-        </div>
-    }
     <p class="item-block__text h5 my-3"><span class="fw-bold">Дата начала:</span> @Model.DateOfStart</p>
     <p class="item-block__text h5 my-3">
         <span class="fw-bold">Дата окончания:</span>
@@ -68,10 +66,6 @@
         {
             <div class="d-flex justify-content-between align-items-center">
                 <p class="item-block__text fw-bold h5 my-3">Подразделения:</p>
-                @if (ViewBag.Editer is not null && ViewBag.Editer is true)
-                {
-                    <a asp-action="Index" asp-controller="Divisions" asp-route-id="@Model.Id" class="btn-success d-block login-form__submit">Редактировать</a>
-                }
             </div>
             foreach (var item in Model.Divisions)
             {

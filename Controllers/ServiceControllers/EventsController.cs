@@ -434,6 +434,7 @@ namespace DiplomService.Controllers
             ViewBag.eventId = eventId;
             return View(user);
         }
+
         [HttpPost]
         [Authorize(Roles = "OrganizationUser")]
         [ValidateAntiForgeryToken]
@@ -462,6 +463,7 @@ namespace DiplomService.Controllers
 
             return RedirectToAction(nameof(EventUsers), new {id = eventId });
         }
+
         [HttpPost]
         [Authorize(Roles = "OrganizationUser")]
         public async Task<IActionResult> AddUser(ApplicationDataViewModel model)

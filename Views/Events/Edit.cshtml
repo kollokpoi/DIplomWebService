@@ -12,6 +12,15 @@
 </div>
 
 <div class="container">
+    <div class="navigation-block">
+        <a href="#" class="cabinet-nav__item">Событие</a>
+        <a asp-action="Index" asp-controller="Measures" asp-route-id="@Model.Id" class="cabinet-nav__item">Расписание</a>
+        @if (Model.DivisionsExist)
+        {
+            <a asp-action="Index" asp-controller="Divisions" asp-route-id="@Model.Id" class="cabinet-nav__item">Подразделения</a>
+        }
+    </div>
+
     <form id="eventForm" class="eventPage" enctype="multipart/form-data" method="post">
         <p class="display-6">Заполните основную информацию</p>
         <div asp-validation-summary="ModelOnly" class="text-danger"></div>
@@ -101,11 +110,35 @@
             <span asp-validation-for="@Model.DateOfEnd" class="text-danger"></span>
         </div>
         <div class="d-flex justify-content-end">
-            <input class="btn btn-primary next-button my-3 w-25" type="submit" value="Далее" />
+            <input class="btn btn-primary next-button my-3 w-25" type="submit" value="Сохранить" />
         </div>
     </form>
 </div>
-
+@section Faq {
+    <div id="faq">
+    </div>
+    <div id="faq-body">
+        <p class="h5 fw-bold">Описание полей:</p>
+        <p class="fw-bold">"Имеются ли направления":</p>
+        <ul>
+            <li>
+                Отсутствуют - означает, что в вашем событии не будет разделения участников на направления. Вам потребуется указать основное место проведения.
+            </li>
+            <li>
+                Имеются - в событии будет присутствовать разделение на направления. Настроить их можно будет в дальнейшем.
+            </li>
+        </ul>
+        <p class="fw-bold">"Является ли событие публичным"</p>
+        <ul>
+            <li>
+                Публичное - событие будет отображаться в общем списке и участники смогут самостоятельно подавать заявки на участие.
+            </li>
+            <li>
+                Скрытое - событие не будет показано в общем списке, а участников вам потребуется добавлять самостоятельно.
+            </li>
+        </ul>
+    </div>
+}
 @section Scripts{
     @{
         await Html.RenderPartialAsync("_ValidationScriptsPartial");

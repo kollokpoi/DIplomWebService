@@ -101,8 +101,8 @@ namespace DiplomService.Controllers
                 {
                     Name = model.Name,
                     Description = model.Description,
-                    Longitude= model.Longitude,
-                    Latitude= model.Latitude,
+                    Longitude= model.Longitude.Value,
+                    Latitude= model.Latitude.Value,
                     PreviewImage = model.PriviewImage,
                     DateOfStart = model.StartDate, 
                     DateOfEnd = model.EndDate,
@@ -289,8 +289,8 @@ namespace DiplomService.Controllers
 
                 division.Name = model.Name;
                 division.Description = model.Description;
-                division.Longitude = model.Longitude;
-                division.Latitude = model.Latitude;
+                division.Longitude = model.Longitude.Value;
+                division.Latitude = model.Latitude.Value;
                 division.DateOfStart = model.StartDate;
                 division.DateOfEnd = model.EndDate;
                 division.PlaceName = model.PlaceName;

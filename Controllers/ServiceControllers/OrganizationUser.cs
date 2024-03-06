@@ -27,7 +27,6 @@ namespace DiplomService.Controllers.ServiceControllers
         public async Task<IActionResult> Organization()
         {
             var organizationUser = await _userManager.GetUserAsync(User) as OrganizationUsers;
-
             if (organizationUser != null)
             {
                 var organization = organizationUser.Organization;

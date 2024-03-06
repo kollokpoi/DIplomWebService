@@ -20,6 +20,11 @@
     </div>
 </div>
 <div class="container">
+    <div class="navigation-block">
+        <a asp-action="Edit" asp-controller="Events" asp-route-id="@Model.Id" class="cabinet-nav__item">Событие</a>
+        <a asp-action="Index" asp-controller="Measures" asp-route-id="@Model.Id" class="cabinet-nav__item">Расписание</a>
+        <a href="#" class="cabinet-nav__item">Подразделения</a>
+    </div>
     <div class="circled-search__block">
         <input type="text" class="circled-search__input">
     </div>
@@ -59,6 +64,36 @@
              <a href="/Events/Publish/@Model.Id" class="btn btn-primary my-3 w-25">Опубликовать</a>
         </div>
 </div>
+
+@section Faq {
+    <div id="faq">
+    </div>
+    <div id="faq-body">
+        <p class="h5 fw-bold">Описание полей:</p>
+        <p class="fw-bold">"Продолжительность"</p>
+        <p>Укажите, сколько должно длиться мероприятие</p>
+        <p class="fw-bold">"Основное место проведения"</p>
+        <p>Укажите, место, в котором должно проводиться мероприятие</p>
+        <p class="fw-bold">"Частота проведения"</p>
+        <ul>
+            <li>
+                Одноразовое - событие произойдет только один раз, дату и время проведения которого потребуется указать. Например, награждение
+            </li>
+            <li>
+                Повторяющееся - мероприятие будет проводиться несколько раз, для чего потребуется настроить дни повторения.
+                <p class="fw-bold">"Режим выбора дат"</p>
+                <ul>
+                    <li>
+                        Даты - потребуется указать конкретные, даты, в которое будет проводиться мероприятие.
+                    </li>
+                    <li>
+                        Дни недели - выберите дни недели, в которые будет проводиться мероприятие и укажите время.
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+}
 @section Scripts{
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/js/searchScript.js"></script>
