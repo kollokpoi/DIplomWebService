@@ -600,3 +600,29 @@ a:hover{
     top:0;
     left:100%;
 }
+#suggestionsDropdown {
+    display: none;
+    position: absolute;
+    width: 100%;
+    background: white;
+    z-index: 10;
+    max-height: 200px;
+    overflow-y: scroll;
+    border: solid 1px var(--bright-color);
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    border-radius: 10px 0 0 10px;
+}
+
+.suggestion {
+    border: none;
+    cursor: pointer;
+    -moz-transition: .5s;
+    -o-transition: .5s;
+    -webkit-transition: .5s;
+    transition: .5s;
+}
+
+.suggestion:hover {
+    background: var(--bright-color);
+}

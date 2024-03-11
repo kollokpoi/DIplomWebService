@@ -17,7 +17,7 @@
     </div>
     @foreach (var item in Model)
     {
-        <a asp-action="Details" asp-controller="News" asp-route-id="@item?.Id" class="item-block">
+        <a asp-action="Details" asp-controller="News" asp-route-id="@item?.Id" class="item-block my-2">
             @if (item.Image != null)
             {
                 string? mimeType = item.MimeType; // MIME-тип по умолчанию

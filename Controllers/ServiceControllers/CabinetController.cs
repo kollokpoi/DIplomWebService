@@ -1,5 +1,6 @@
 ﻿using DiplomService.Database;
 using DiplomService.Models;
+using DiplomService.Models.Users;
 using DiplomService.ViewModels.User;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
@@ -45,6 +46,7 @@ namespace DiplomService.Controllers.ServiceControllers
         }
         public ActionResult Index()
         {
+
             if (User.IsInRole("Administrator"))
             {
                 return RedirectToAction("Dashboard", "Admin");
@@ -115,7 +117,10 @@ namespace DiplomService.Controllers.ServiceControllers
             var result = await _userManager.ChangePasswordAsync(user, model.OldPassword, model.Password);
 
             if (result.Succeeded)
-                return RedirectToAction(nameof(Edit));
+            {
+                ViewBag.SuccessMessage = "Пароль успешно изменен";
+                return View(model);
+            }
             else
             {
                 ModelState.AddModelError("","Ошибка обновления пароля");

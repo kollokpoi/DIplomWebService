@@ -5,7 +5,7 @@
     let divisionsExists = $("#DivisionExist").val() === 'True';
     let eventId = $("#EventId").val();
 
-
+     
     $(document).on('change', '.measureUniqueCheckbox', function () {
         let isChecked = $(this).prop("checked");
         var checkboxContainer = $(this).closest(".measureItem");

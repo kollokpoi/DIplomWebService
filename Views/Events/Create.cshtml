@@ -74,9 +74,10 @@
             </select>
             <span asp-validation-for="DivisionsExist" class="text-danger"></span>
         </div>
-        <div class="form-group my-2" id="mapHolder" style="display:none">
+        <div class="form-group my-2 position-relative" id="mapHolder" style="display:none" >
             <label asp-for="PlaceName" class="control-label">Основное место проведения*</label>
             <input asp-for="PlaceName" class="login-form__input form-control my-2" />
+            <div id="suggestionsDropdown" style="position: absolute; display: none; z-index:10"></div>
             <input type="hidden" asp-for="Longitude" />
             <input type="hidden" asp-for="Latitude" />
             <div id="map"></div>

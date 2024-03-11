@@ -50,12 +50,14 @@ namespace DiplomService.Controllers.ApiContollers
             }
             else
             {
-                var measures = await _context.MobileUsers
+                var divisions = await _context.MobileUsers
                     .Where(u => u == user)
                     .SelectMany(u => u.UserDivisions)
-                    .SelectMany(du => du.Division.MeasureDivisionsInfos)
-                    .Distinct()
-                    .ToListAsync();
+                    .Select(du => du.Division).ToListAsync();
+
+                var measures = divisions.SelectMany(x => x.Event.Measures).Where(x=>x.SameForAll).SelectMany(x=>x.MeasureDivisionsInfos).Distinct().ToList();
+                measures.AddRange(divisions.SelectMany(x => x.MeasureDivisionsInfos).ToList());
+
 
                 List<MeasureDates> measureDates = new List<MeasureDates>();
                 List<EventMeasuresViewModel> viewModel = new List<EventMeasuresViewModel>();
@@ -69,6 +71,7 @@ namespace DiplomService.Controllers.ApiContollers
                     {
                         measureDates.AddRange(GetNearestDayOfWeek(item.MeasureDays));
                     }
+                    
                 }
                 measureDates = measureDates.OrderBy(x=>x.Datetime).ToList();
                 foreach (var item in measureDates)
@@ -76,8 +79,10 @@ namespace DiplomService.Controllers.ApiContollers
                     viewModel.Add(new EventMeasuresViewModel()
                     {
                         Id = item.MeasureDivisionsInfosId,
-                        EventName = item.MeasureDivisionsInfos.Division.Event.Name,
-                        DateTime = item.Datetime
+                        SameForAll = item.MeasureDivisionsInfos.SameForAll,
+                        EventName = item.MeasureDivisionsInfos.Measure.Name,
+                        DateTime = item.Datetime,
+                        Icon = item.MeasureDivisionsInfos.Measure.Icon
                     });
                 }
 
@@ -127,6 +132,7 @@ namespace DiplomService.Controllers.ApiContollers
                     {
                         viewModelItem.DateTime = GetNearestDate(measure.MeasureDates);
                     }
+                    viewModelItem.Icon = measure.Measure.Icon;
                     viewModel.Add(viewModelItem);
                 }
 
@@ -139,10 +145,10 @@ namespace DiplomService.Controllers.ApiContollers
         [HttpGet("GetMeasure/{id}")]
         public async Task<ActionResult<MeasureDivisionsInfo>> GetMeasure(int id)
         {
-          if (_context.Measures == null)
-          {
-              return NotFound();
-          }
+            if (_context.Measures == null)
+            {
+                return NotFound();
+            }
             var measure = await _context.MeasureDivisionsInfos.FindAsync(id);
 
             if (measure == null)

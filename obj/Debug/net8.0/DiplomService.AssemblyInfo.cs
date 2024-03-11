@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("DiplomService")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+be500fae5caa59c964b8756f4ad44bb296b08429")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+aba88caf59012b2210b8964f2120819a745e6f79")]
 [assembly: System.Reflection.AssemblyProductAttribute("DiplomService")]
 [assembly: System.Reflection.AssemblyTitleAttribute("DiplomService")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

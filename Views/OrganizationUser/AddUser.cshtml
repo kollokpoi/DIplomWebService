@@ -7,16 +7,17 @@
 @section Styles {
     <link rel="stylesheet" href="~/css/cabinetstyle.css" asp-append-version="true" />
 }
-@section Nav {
-    <partial name="_NavPartial" />
-}
+
 <div class="intro" style="height:40vh">
     <div class="intro__column">
         <p class="title-text">Добавление пользователя организации</p>
     </div>
 </div>
 
-<div class=" container">
+<div class="container">
+    <div class="navigation-block">
+        <partial name="_NavPartial" />
+    </div>
     <form asp-action="AddUser" method="post" enctype="multipart/form-data" class="login-form">
         <p class="login-form__big-text">Заполните данные.</p>
         <input type="hidden" asp-for="OrganizationId"/>

@@ -50,7 +50,7 @@
                 </div>
                 <span asp-validation-for="PreviewImageFile" class="text-danger"></span>
             </div>
-            <div class="w-100">
+            <div class="w-100 position-relative">
                    <div class="form-group my-2">
                     <label asp-for="Name" class="control-label">Название</label>
                     <input asp-for="Name" class="login-form__input form-control" />
@@ -66,7 +66,7 @@
                 <div class="form-group my-2">
                     <label asp-for="PlaceName" class="control-label">Основное место проведения*</label>
                     <input asp-for="PlaceName" class="login-form__input form-control" />
-
+                    <div id="suggestionsDropdown" style="position: absolute; display: none; z-index:10"></div>
                 </div>
             </div>
 
@@ -305,7 +305,7 @@
         await Html.RenderPartialAsync("_ValidationScriptsPartial");
         <script src="~/js/showImage.js" asp-append-version="true"></script>
         <script src="~/js/MeasureScript.js" asp-append-version="true"></script>
-        <script src="https://api-maps.yandex.ru/2.1/?apikey=375cc711-8399-4720-be09-5496b07e2890&lang=ru_RU" type="text/javascript"></script>
+        <script src="https://api-maps.yandex.ru/2.1/?apikey=778e1228-3aaa-4187-9f60-b49fbe5c5ce5&lang=ru_RU" type="text/javascript"></script>
         <script src="~/js/MapScript.js" asp-append-version="true"></script>
     }
 }

@@ -92,94 +92,92 @@ namespace DiplomService.Controllers
         public async Task<IActionResult> Create(int id, DivisionViewModel model)
         {
             if (!ModelState.IsValid)
-            {
-                var @event = await _context.Events.FirstOrDefaultAsync(x => x.Id == id);
-                if (@event == null)
-                    return NotFound();
+               return View(model);
 
-                var division = new Division()
+            var @event = await _context.Events.FirstOrDefaultAsync(x => x.Id == id);
+            if (@event == null)
+                return NotFound();
+
+            var division = new Division()
+            {
+                Name = model.Name,
+                Description = model.Description,
+                Longitude= model.Longitude.Value,
+                Latitude= model.Latitude.Value,
+                PreviewImage = model.PriviewImage,
+                DateOfStart = model.StartDate, 
+                DateOfEnd = model.EndDate,
+                Event = @event,
+                EventId = id,
+            };
+
+            @event.Divisions.Add(division);
+            foreach (var item in model.Measures)
+            {
+                var measure = await _context.Measures.FirstOrDefaultAsync(x => x.Id == item.Id);
+
+                if (measure == null)
+                    continue;
+
+                var measureDivisionInfo = new MeasureDivisionsInfo()
                 {
-                    Name = model.Name,
-                    Description = model.Description,
-                    Longitude= model.Longitude.Value,
-                    Latitude= model.Latitude.Value,
-                    PreviewImage = model.PriviewImage,
-                    DateOfStart = model.StartDate, 
-                    DateOfEnd = model.EndDate,
-                    Event = @event,
-                    EventId = id,
+                    Measure = measure,
+                    Division = division,
+                    SameForAll = false,
+                    Length = item.Length,
+                    Place = item.Place,
+                    OneTime = item.OneTime,
+                    WeekDays = item.WeekDays,
+                    MeasureId = measure.Id
                 };
 
-                @event.Divisions.Add(division);
-                foreach (var item in model.Measures)
+                measure.MeasureDivisionsInfos.Add(measureDivisionInfo);
+                division.MeasureDivisionsInfos.Add(measureDivisionInfo);
+
+                if (item.OneTime)
                 {
-                    var measure = await _context.Measures.FirstOrDefaultAsync(x => x.Id == item.Id);
-
-                    if (measure == null)
-                        continue;
-
-                    var measureDivisionInfo = new MeasureDivisionsInfo()
+                    measureDivisionInfo.MeasureDates.Add(new()
                     {
-                        Measure = measure,
-                        Division = division,
-                        SameForAll = false,
-                        Length = item.Length,
-                        Place = item.Place,
-                        OneTime = item.OneTime,
-                        WeekDays = item.WeekDays,
-                        MeasureId = measure.Id
-                    };
-
-                    measure.MeasureDivisionsInfos.Add(measureDivisionInfo);
-                    division.MeasureDivisionsInfos.Add(measureDivisionInfo);
-
-                    if (item.OneTime)
+                        Datetime = item.MeasureDates[0].Datetime,
+                        Place = item.Place
+                    });
+                }
+                else
+                {
+                    if (item.WeekDays)
                     {
-                        measureDivisionInfo.MeasureDates.Add(new()
+                        foreach (var dayItem in item.MeasureDays)
                         {
-                            Datetime = item.MeasureDates[0].Datetime,
-                            Place = item.Place
-                        });
+                            if (!dayItem.Checked)
+                            {
+                                continue;
+                            }
+                            var day = new MeasureDays()
+                            {
+                                DayNumber = dayItem.DayNumber,
+                                TimeSpan = dayItem.TimeSpan,
+                                Place = dayItem.Place,
+                            };
+                            measureDivisionInfo.MeasureDays.Add(day);
+                        }
                     }
                     else
                     {
-                        if (item.WeekDays)
+                        foreach (var dateItem in item.MeasureDates)
                         {
-                            foreach (var dayItem in item.MeasureDays)
+                            var date = new MeasureDates()
                             {
-                                if (!dayItem.Checked)
-                                {
-                                    continue;
-                                }
-                                var day = new MeasureDays()
-                                {
-                                    DayNumber = dayItem.DayNumber,
-                                    TimeSpan = dayItem.TimeSpan,
-                                    Place = dayItem.Place,
-                                };
-                                measureDivisionInfo.MeasureDays.Add(day);
-                            }
-                        }
-                        else
-                        {
-                            foreach (var dateItem in item.MeasureDates)
-                            {
-                                var date = new MeasureDates()
-                                {
-                                    Datetime = dateItem.Datetime,
-                                    Place = dateItem.Place,
-                                };
-                                measureDivisionInfo.MeasureDates.Add(date);
-                            }
+                                Datetime = dateItem.Datetime,
+                                Place = dateItem.Place,
+                            };
+                            measureDivisionInfo.MeasureDates.Add(date);
                         }
                     }
                 }
-
-                await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index), new { Id = id });
             }
 
-            return View(model);
+            await _context.SaveChangesAsync();
+            return RedirectToAction(nameof(Index), new { Id = id });
         }
 
         public async Task<IActionResult> Edit(int id, int eventId)

@@ -3,24 +3,40 @@
   "WorkspaceRootPath": "H:\\projects\\Diplom\\DiplomService\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{29F85887-ED18-4D98-B461-08078551CFC0}|DiplomService.csproj|h:\\projects\\diplom\\diplomservice\\controllers\\servicecontrollers\\eventscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{29F85887-ED18-4D98-B461-08078551CFC0}|DiplomService.csproj|solutionrelative:controllers\\servicecontrollers\\eventscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{29F85887-ED18-4D98-B461-08078551CFC0}|DiplomService.csproj|h:\\projects\\diplom\\diplomservice\\views\\events\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{29F85887-ED18-4D98-B461-08078551CFC0}|DiplomService.csproj|solutionrelative:views\\events\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{29F85887-ED18-4D98-B461-08078551CFC0}|DiplomService.csproj|h:\\projects\\diplom\\diplomservice\\views\\organizationuser\\organizationevents.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{29F85887-ED18-4D98-B461-08078551CFC0}|DiplomService.csproj|solutionrelative:views\\organizationuser\\organizationevents.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{29F85887-ED18-4D98-B461-08078551CFC0}|DiplomService.csproj|h:\\projects\\diplom\\diplomservice\\views\\events\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{29F85887-ED18-4D98-B461-08078551CFC0}|DiplomService.csproj|solutionrelative:views\\events\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{29F85887-ED18-4D98-B461-08078551CFC0}|DiplomService.csproj|h:\\projects\\diplom\\diplomservice\\views\\events\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{29F85887-ED18-4D98-B461-08078551CFC0}|DiplomService.csproj|solutionrelative:views\\events\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{29F85887-ED18-4D98-B461-08078551CFC0}|DiplomService.csproj|h:\\projects\\diplom\\diplomservice\\views\\divisions\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{29F85887-ED18-4D98-B461-08078551CFC0}|DiplomService.csproj|solutionrelative:views\\divisions\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{29F85887-ED18-4D98-B461-08078551CFC0}|DiplomService.csproj|h:\\projects\\diplom\\diplomservice\\views\\news\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{29F85887-ED18-4D98-B461-08078551CFC0}|DiplomService.csproj|solutionrelative:views\\news\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{29F85887-ED18-4D98-B461-08078551CFC0}|DiplomService.csproj|h:\\projects\\diplom\\diplomservice\\views\\divisions\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{29F85887-ED18-4D98-B461-08078551CFC0}|DiplomService.csproj|solutionrelative:views\\divisions\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{29F85887-ED18-4D98-B461-08078551CFC0}|DiplomService.csproj|h:\\projects\\diplom\\diplomservice\\views\\news\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{29F85887-ED18-4D98-B461-08078551CFC0}|DiplomService.csproj|solutionrelative:views\\news\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{29F85887-ED18-4D98-B461-08078551CFC0}|DiplomService.csproj|h:\\projects\\diplom\\diplomservice\\wwwroot\\js\\mapscript.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{29F85887-ED18-4D98-B461-08078551CFC0}|DiplomService.csproj|solutionrelative:wwwroot\\js\\mapscript.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{29F85887-ED18-4D98-B461-08078551CFC0}|DiplomService.csproj|h:\\projects\\diplom\\diplomservice\\views\\user\\list.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{29F85887-ED18-4D98-B461-08078551CFC0}|DiplomService.csproj|solutionrelative:views\\user\\list.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{29F85887-ED18-4D98-B461-08078551CFC0}|DiplomService.csproj|h:\\projects\\diplom\\diplomservice\\views\\admin\\events.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{29F85887-ED18-4D98-B461-08078551CFC0}|DiplomService.csproj|solutionrelative:views\\admin\\events.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{29F85887-ED18-4D98-B461-08078551CFC0}|DiplomService.csproj|h:\\projects\\diplom\\diplomservice\\controllers\\servicecontrollers\\cabinetcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{29F85887-ED18-4D98-B461-08078551CFC0}|DiplomService.csproj|solutionrelative:controllers\\servicecontrollers\\cabinetcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{29F85887-ED18-4D98-B461-08078551CFC0}|DiplomService.csproj|h:\\projects\\diplom\\diplomservice\\views\\user\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{29F85887-ED18-4D98-B461-08078551CFC0}|DiplomService.csproj|solutionrelative:views\\user\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     }
   ],
   "DocumentGroupContainers": [
@@ -30,32 +46,32 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 5,
+          "SelectedChildIndex": 4,
           "Children": [
             {
               "$type": "Document",
               "DocumentIndex": 3,
-              "Title": "Create.cshtml",
-              "DocumentMoniker": "H:\\projects\\Diplom\\DiplomService\\Views\\News\\Create.cshtml",
-              "RelativeDocumentMoniker": "Views\\News\\Create.cshtml",
-              "ToolTip": "H:\\projects\\Diplom\\DiplomService\\Views\\News\\Create.cshtml",
-              "RelativeToolTip": "Views\\News\\Create.cshtml",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAC4AAABXAAAA",
+              "Title": "Edit.cshtml",
+              "DocumentMoniker": "H:\\projects\\Diplom\\DiplomService\\Views\\Divisions\\Edit.cshtml",
+              "RelativeDocumentMoniker": "Views\\Divisions\\Edit.cshtml",
+              "ToolTip": "H:\\projects\\Diplom\\DiplomService\\Views\\Divisions\\Edit.cshtml",
+              "RelativeToolTip": "Views\\Divisions\\Edit.cshtml",
+              "ViewState": "AQIAACAAAAAAAAAAAAAAAEgAAAAUAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-03-06T17:09:52.996Z",
+              "WhenOpened": "2024-03-11T15:15:08.533Z",
               "IsPinned": true
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "Edit.cshtml",
-              "DocumentMoniker": "H:\\projects\\Diplom\\DiplomService\\Views\\News\\Edit.cshtml",
-              "RelativeDocumentMoniker": "Views\\News\\Edit.cshtml",
-              "ToolTip": "H:\\projects\\Diplom\\DiplomService\\Views\\News\\Edit.cshtml",
-              "RelativeToolTip": "Views\\News\\Edit.cshtml",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAH8AAAABAAAA",
+              "DocumentIndex": 2,
+              "Title": "Create.cshtml",
+              "DocumentMoniker": "H:\\projects\\Diplom\\DiplomService\\Views\\Divisions\\Create.cshtml",
+              "RelativeDocumentMoniker": "Views\\Divisions\\Create.cshtml",
+              "ToolTip": "H:\\projects\\Diplom\\DiplomService\\Views\\Divisions\\Create.cshtml",
+              "RelativeToolTip": "Views\\Divisions\\Create.cshtml",
+              "ViewState": "AQIAABIAAAAAAAAAAAAAAEwAAAAYAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-03-06T17:20:41.819Z",
+              "WhenOpened": "2024-03-11T15:25:28.998Z",
               "IsPinned": true
             },
             {
@@ -68,40 +84,88 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "OrganizationEvents.cshtml",
-              "DocumentMoniker": "H:\\projects\\Diplom\\DiplomService\\Views\\OrganizationUser\\OrganizationEvents.cshtml",
-              "RelativeDocumentMoniker": "Views\\OrganizationUser\\OrganizationEvents.cshtml",
-              "ToolTip": "H:\\projects\\Diplom\\DiplomService\\Views\\OrganizationUser\\OrganizationEvents.cshtml",
-              "RelativeToolTip": "Views\\OrganizationUser\\OrganizationEvents.cshtml",
-              "ViewState": "AQIAAA8AAAAAAAAAAAAAAEwAAACWAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-03-06T18:07:19.912Z"
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "EventsController.cs",
-              "DocumentMoniker": "H:\\projects\\Diplom\\DiplomService\\Controllers\\ServiceControllers\\EventsController.cs",
-              "RelativeDocumentMoniker": "Controllers\\ServiceControllers\\EventsController.cs",
-              "ToolTip": "H:\\projects\\Diplom\\DiplomService\\Controllers\\ServiceControllers\\EventsController.cs",
-              "RelativeToolTip": "Controllers\\ServiceControllers\\EventsController.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAADwCAAAsAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-03-06T18:02:29.995Z",
+              "Title": "Edit.cshtml",
+              "DocumentMoniker": "H:\\projects\\Diplom\\DiplomService\\Views\\Events\\Edit.cshtml",
+              "RelativeDocumentMoniker": "Views\\Events\\Edit.cshtml",
+              "ToolTip": "H:\\projects\\Diplom\\DiplomService\\Views\\Events\\Edit.cshtml",
+              "RelativeToolTip": "Views\\Events\\Edit.cshtml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAF0AAAA1AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-03-11T17:01:31.791Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "Index.cshtml",
-              "DocumentMoniker": "H:\\projects\\Diplom\\DiplomService\\Views\\Events\\Index.cshtml",
-              "RelativeDocumentMoniker": "Views\\Events\\Index.cshtml",
-              "ToolTip": "H:\\projects\\Diplom\\DiplomService\\Views\\Events\\Index.cshtml",
-              "RelativeToolTip": "Views\\Events\\Index.cshtml",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA8AAAAKAAAA",
+              "DocumentIndex": 1,
+              "Title": "Create.cshtml",
+              "DocumentMoniker": "H:\\projects\\Diplom\\DiplomService\\Views\\Events\\Create.cshtml",
+              "RelativeDocumentMoniker": "Views\\Events\\Create.cshtml",
+              "ToolTip": "H:\\projects\\Diplom\\DiplomService\\Views\\Events\\Create.cshtml",
+              "RelativeToolTip": "Views\\Events\\Create.cshtml",
+              "ViewState": "AQIAAC8AAAAAAAAAAAD4v0wAAAA1AAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-03-06T18:00:15.319Z"
+              "WhenOpened": "2024-03-11T17:00:21.337Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "MapScript.js",
+              "DocumentMoniker": "H:\\projects\\Diplom\\DiplomService\\wwwroot\\js\\MapScript.js",
+              "RelativeDocumentMoniker": "wwwroot\\js\\MapScript.js",
+              "ToolTip": "H:\\projects\\Diplom\\DiplomService\\wwwroot\\js\\MapScript.js",
+              "RelativeToolTip": "wwwroot\\js\\MapScript.js",
+              "ViewState": "AQIAAC4AAAAAAAAAAADgv5cAAAAaAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
+              "WhenOpened": "2024-03-11T14:55:18.035Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Events.cshtml",
+              "DocumentMoniker": "H:\\projects\\Diplom\\DiplomService\\Views\\Admin\\Events.cshtml",
+              "RelativeDocumentMoniker": "Views\\Admin\\Events.cshtml",
+              "ToolTip": "H:\\projects\\Diplom\\DiplomService\\Views\\Admin\\Events.cshtml",
+              "RelativeToolTip": "Views\\Admin\\Events.cshtml",
+              "ViewState": "AQIAAB4AAAAAAAAAAAAAAE0AAAAJAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-03-11T14:38:02.931Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "List.cshtml",
+              "DocumentMoniker": "H:\\projects\\Diplom\\DiplomService\\Views\\User\\List.cshtml",
+              "RelativeDocumentMoniker": "Views\\User\\List.cshtml",
+              "ToolTip": "H:\\projects\\Diplom\\DiplomService\\Views\\User\\List.cshtml",
+              "RelativeToolTip": "Views\\User\\List.cshtml",
+              "ViewState": "AQIAAAwAAAAAAAAAAAAAABkAAAAEAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-03-11T14:36:09.805Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "Details.cshtml",
+              "DocumentMoniker": "H:\\projects\\Diplom\\DiplomService\\Views\\User\\Details.cshtml",
+              "RelativeDocumentMoniker": "Views\\User\\Details.cshtml",
+              "ToolTip": "H:\\projects\\Diplom\\DiplomService\\Views\\User\\Details.cshtml",
+              "RelativeToolTip": "Views\\User\\Details.cshtml",
+              "ViewState": "AQIAABUAAAAAAAAAAAAAACAAAABWAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-03-11T14:36:03.438Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "CabinetController.cs",
+              "DocumentMoniker": "H:\\projects\\Diplom\\DiplomService\\Controllers\\ServiceControllers\\CabinetController.cs",
+              "RelativeDocumentMoniker": "Controllers\\ServiceControllers\\CabinetController.cs",
+              "ToolTip": "H:\\projects\\Diplom\\DiplomService\\Controllers\\ServiceControllers\\CabinetController.cs",
+              "RelativeToolTip": "Controllers\\ServiceControllers\\CabinetController.cs",
+              "ViewState": "AQIAAD0AAAAAAAAAAAAAAHYAAAAMAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-11T14:28:53.061Z"
             }
           ]
         }
