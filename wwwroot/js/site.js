@@ -71,4 +71,11 @@
     $("#faq").click(function () {
         $("#faq-body").toggleClass('visible');
     })
+
+
+    $('.burger-button').click(function(){
+        console.log('click')
+        $(this).toggleClass('active');
+        $(this).parent().find('.header__nav-div').toggleClass('active');
+    })
 });
