@@ -1,14 +1,14 @@
 ﻿@{
     Layout = null;
 }
-
-@model DiplomService.ViewModels.LoginViewModel;
+@using DiplomService.ViewModels.AuthViewModels
+@model LoginViewModel;
 <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
 <link rel="stylesheet" href="~/css/style.css" asp-append-version="true" />
 
 <div class="container">
     <div class="vertical-center-block">
-        <form asp-action="Login" method="post" enctype="multipart/form-data" class="login-form">
+        <form asp-action="Login" method="post" enctype="multipart/form-data" class="login-form" autocomplete="current-password">
             <p class="login-form__big-text">Добро пожаловать.</p>
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
 

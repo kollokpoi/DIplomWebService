@@ -12,7 +12,7 @@
     </div>
 </div>
 <div class="container">
-    <div class="d-flex">
+    <div class="d-flex mb-3">
         @{
             @if (Model is not null && Model.Image is not null)
             {
@@ -20,7 +20,7 @@
 
                 if (mimeType is not null)
                 {
-                <img src="data:@mimeType;base64,@Convert.ToBase64String(Model.Image)" alt="Image" class="item-block__image w-25 my-2 me-2 float-start">
+                    <img src="data:@mimeType;base64,@Convert.ToBase64String(Model.Image)" alt="Image" class="item-block__image w-25 my-2 me-2">
                 }
             }
         }
@@ -31,25 +31,23 @@
     </div>
     @for (int i = 0; i < Model.Sections.Count; i++)
     {
-        <div class="my-2">
+        <div class="my-4">
             <p class="my-2 fw-bold h4">@Model.Sections[i].Title</p>
-             <p class="splitText">
-                @{
-                    @if (Model is not null && Model.Sections[i].Image is not null)
-                    {
-                        string? mimeType = Model.Sections[i].MimeType; // MIME-тип по умолчанию
-                        string align = "left";
-                        int point = i%3;
-                        if (point==1)
-                        {
-                            align = "right";
-                        }
-                        if (Model.Sections[i].Image is not null)
-                        {
-                            <img src="data:@mimeType;base64,@Convert.ToBase64String(Model.Sections[i].Image)" alt="Image" style="float:@align;" class="item-block__image w-25 m-3">
-                        }
-                    }
-                }
+            <p class="splitText">
+                 @if (Model is not null && Model.Sections[i].Image is not null)
+                 {
+                     string? mimeType = Model.Sections[i].MimeType; // MIME-тип по умолчанию
+                     string align = "left";
+                     int point = i%3;
+                     if (point==1)
+                     {
+                         align = "right";
+                     }
+                     if (Model.Sections[i].Image is not null)
+                     {
+                         <img src="data:@mimeType;base64,@Convert.ToBase64String(Model.Sections[i].Image)" alt="Image" style="float:@align;" class="item-block__image w-25 m-3">
+                     }
+                 }
                  @Model.Sections[i].Description
              </p>
         </div>

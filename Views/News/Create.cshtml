@@ -18,7 +18,7 @@
         <div id="ItemsHolder">
             <p class="display-6 fw-bold" title="Эта часть будет отображаться на странице с новостями">Основная часть</p>
             <div class="d-flex align-items-center">
-                <div class="my-2 me-2">
+                <div class="my-2 me-2 w-25">
                     <label asp-for="ImageFile" class="control-label fw-bold">Изображение</label>
                     <div class="form-group">
                         @{
@@ -41,7 +41,7 @@
                     </div>
                     <span asp-validation-for="ImageFile" class="text-danger"></span>
                 </div>
-                    <div class="w-100">
+                <div class="w-75">
                     <div class="form-group my-2">
                         <label asp-for="Name" class="control-label"></label>
                         <input asp-for="Name" class="login-form__input form-control" />
@@ -50,56 +50,64 @@
 
                     <div class="form-group my-2">
                         <label asp-for="Description" class="control-label"></label>
-                        <textarea asp-for="Description" class="login-form__input form-control"></textarea>
+                        <textarea asp-for="Description" class="login-form__input textarea-input"></textarea>
                         <span asp-validation-for="Description" class="text-danger"></span>
                     </div>
                 </div>
-                </div>
+            </div>
             <p class="display-6 fw-bold" title="Эта часть будет отображаться на странице с новостями">Подзаголовки</p>
             @for (int i = 0; i < Model.Sections.Count; i++)
             {
-                <div class="d-flex align-items-center sectionBlock">
-                     <div class="my-2 me-2">
-                            <label asp-for="Sections[i].ImageFile" class="control-label fw-bold"></label>
-                            <div class="form-group">
-                                @{
-                                    @if (Model is not null && Model.Sections[i].Image is not null)
-                                    {
-                                        string? mimeType = Model.Sections[i].MimeType; // MIME-тип по умолчанию
+                <div class="d-flex align-items-center sectionBlock position-relative">
+                    <input type="hidden" asp-for="Sections[i].Id" />
 
-                                        if (mimeType is not null)
-                                        {
-                                            <img src="data:@mimeType;base64,@Convert.ToBase64String(Model.Sections[i].Image)" alt="Image" class="item-block__image previewImage">
-                                        }
-                                    }
-                                    else
+                    <div class="my-2 me-2 w-25">
+                        <label asp-for="Sections[i].ImageFile" class="control-label fw-bold"></label>
+                        <div class="form-group ">
+                            @{
+                                @if (Model is not null && Model.Sections[i].Image is not null)
+                                {
+                                    string? mimeType = Model.Sections[i].MimeType; // MIME-тип по умолчанию
+
+                                    if (mimeType is not null)
                                     {
-                                        <img src="/Images/camara.png" alt="Image" class="item-block__image previewImage">
+                                        <img src="data:@mimeType;base64,@Convert.ToBase64String(Model.Sections[i].Image)" alt="Image" class="item-block__image previewImage">
                                     }
                                 }
-                    
-                                <input asp-for="Sections[i].ImageFile" style="display:none" accept=".png, .jpg, .jpeg" class="btn previewImageInput" type="file" />
-                                <p class="login-form__submit pointer-event text-center previewImageButton">Выберите файл</p>
-         
-                            </div>
-                            <span asp-validation-for="Sections[i].ImageFile" class="text-danger"></span>
+                                else
+                                {
+                                    <img src="/Images/camara.png" alt="Image" class="item-block__image previewImage">
+                                }
+                            }
+
+                            <input asp-for="Sections[i].ImageFile" style="display:none" accept=".png, .jpg, .jpeg" class="btn previewImageInput" type="file" />
+                            <p class="login-form__submit pointer-event text-center previewImageButton">Выберите файл</p>
+
                         </div>
-                     <div class="w-100">
-                            <div class="form-group my-2">
-                                <label asp-for="Sections[i].Name" class="control-label"></label>
+                        <span asp-validation-for="Sections[i].ImageFile" class="text-danger"></span>
+                    </div>
+                    <div class="w-75">
+                        <label asp-for="Sections[i].Name" class="control-label"></label>
+                        <div class="d-flex align-items-center">
+                            <div class="form-group my-2 w-100">
                                 <input asp-for="Sections[i].Name" class="login-form__input form-control" />
                                 <span asp-validation-for="Sections[i].Name" class="text-danger"></span>
                             </div>
-
-                            <div class="form-group my-2">
-                                <label asp-for="Sections[i].Description" class="control-label"></label>
-                                <textarea asp-for="Sections[i].Description" class="login-form__input form-control"></textarea>
-                                <span asp-validation-for="Sections[i].Description" class="text-danger"></span>
+                            <div class="ms-2">
+                                <input type="hidden" asp-for="Sections[i].ToDelete" />
+                                <div class="deleteBtn" data-index="@i">
+                                </div>
                             </div>
                         </div>
+
+                        <div class="form-group my-2">
+                            <label asp-for="Sections[i].Description" class="control-label"></label>
+                            <textarea asp-for="Sections[i].Description" class="login-form__input textarea-input"></textarea>
+                            <span asp-validation-for="Sections[i].Description" class="text-danger"></span>
+                        </div>
+                    </div>
                 </div>
             }
- 
         </div>
         
         <div class="form-group d-flex justify-content-around">

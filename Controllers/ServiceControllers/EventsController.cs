@@ -1,16 +1,16 @@
-﻿using DiplomService.Controllers.ServiceControllers;
+﻿using DiplomService.Controllers.ApiContollers;
 using DiplomService.Database;
 using DiplomService.Models;
+using DiplomService.Models.EventsFolder.Division;
 using DiplomService.Models.Users;
 using DiplomService.Services;
-using DiplomService.ViewModels;
+using DiplomService.ViewModels.Event;
 using DiplomService.ViewModels.EventApplication;
+using DiplomService.ViewModels.Measures;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Query.Internal;
-using System.Linq;
 using System.Security.Claims;
 using static System.Net.Mime.MediaTypeNames;
 
@@ -35,17 +35,11 @@ namespace DiplomService.Controllers
                         View(await _context.Events.Where(x => x.ReadyToShow).ToListAsync()) :
                         Problem("Entity set 'ApplicationContext.Events'  is null.");
         }
-        public async Task<IActionResult> Details(int? id)
+        public async Task<IActionResult> Details(int id)
         {
-            if (id == null || _context.Events == null)
-            {
-                return NotFound();
-            }
             var @event = await _context.Events.FirstOrDefaultAsync(m => m.Id == id);
             if (@event == null)
-            {
                 return NotFound();
-            }
 
             EventViewModel eventViewModel = new()
             {
@@ -63,7 +57,10 @@ namespace DiplomService.Controllers
             };
             if (await UserAccessed(@event))
                 ViewBag.Editer = true;
-
+            if (!@event.DivisionsExist)
+            {
+                eventViewModel.MeasuresViewModel = GetEventMeasures(@event);
+            }
             return View(eventViewModel);
         }
 
@@ -123,6 +120,7 @@ namespace DiplomService.Controllers
                 eventViewModel.Latitude = @event.Divisions[0].Latitude;
                 eventViewModel.Longitude = @event.Divisions[0].Longitude;
                 eventViewModel.PlaceName = @event.Divisions[0].PlaceName;
+               
             }
 
             return View(eventViewModel);
@@ -384,13 +382,13 @@ namespace DiplomService.Controllers
                     EventId = id,
                     ApplicationDatas = new()
                     {
-                        Birthday = user.Birthday.Value,
+                        Birthday = user.Birthday,
                         Name = user.Name,
                         SecondName = user.SecondName,
                         LastName = user.LastName,
                         Course = user.Course,
-                        PhoneNumber = user.PhoneNumber,
-                        Email = user.Email
+                        PhoneNumber = user.PhoneNumber?? "",
+                        Email = user.Email ?? ""
                     },
                     DivisionsExist = @event.DivisionsExist,
                     Divisions = @event.Divisions
@@ -569,7 +567,6 @@ namespace DiplomService.Controllers
 
             return Ok();
         }
-
         private async Task RemoveEvent(Event @event)
         {
             foreach (var item in @event.Measures)
@@ -586,7 +583,6 @@ namespace DiplomService.Controllers
             _context.Events.Remove(@event);
             await _context.SaveChangesAsync();
         }
-
         private async Task<bool> UserAccessed(Event @event)
         {
             if (User.IsInRole("OrganizationUser"))
@@ -598,6 +594,43 @@ namespace DiplomService.Controllers
                 return false;
             }
             return false;
+        }
+        private List<EventMeasuresViewModel> GetEventMeasures(Event @event)
+        {
+            List<EventMeasuresViewModel> viewModel = new List<EventMeasuresViewModel>();
+            List<MeasureDivisionsInfo> measuresForDivision = new List<MeasureDivisionsInfo>();
+            for (int i = 0; i < @event.Divisions.Count; i++)
+            {
+                if (i == 0)
+                {
+                    measuresForDivision.AddRange(@event.Measures.Where(x => x.SameForAll)
+                          .SelectMany(x => x.MeasureDivisionsInfos).ToList());
+                }
+                measuresForDivision.AddRange(@event.Divisions[i].MeasureDivisionsInfos);
+            }
+
+            foreach (var measure in measuresForDivision)
+            {
+                var viewModelItem = new EventMeasuresViewModel()
+                {
+                    Id = measure.Id,
+                    EventName = measure.Measure.Name,
+                };
+                if (measure.WeekDays)
+                {
+                    viewModelItem.DateTime = ApiContollers.MeasuresController.GetNearestDate(measure.MeasureDays);
+                }
+                else
+                {
+                    viewModelItem.DateTime = ApiContollers.MeasuresController.GetNearestDate(measure.MeasureDates);
+                }
+                viewModelItem.Icon = measure.Measure.Icon;
+                viewModelItem.Length = measure.Length;
+                viewModel.Add(viewModelItem);
+            }
+
+            viewModel = viewModel.OrderBy(x => x.DateTime).ToList();
+            return viewModel;
         }
     }
 }

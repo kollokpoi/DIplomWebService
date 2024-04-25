@@ -2,10 +2,11 @@
 using DiplomService.Models;
 using DiplomService.Models.OrganizationFolder;
 using DiplomService.Models.Users;
-using DiplomService.ViewModels;
+using DiplomService.ViewModels.AuthViewModels;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using System.Security.Claims;
 
 namespace DiplomService.Controllers.ServiceControllers
 {
@@ -37,9 +38,9 @@ namespace DiplomService.Controllers.ServiceControllers
                 if (result.Succeeded)
                 {
                     var user = await _userManager.FindByEmailAsync(model.Email);
-
                     if (user != null)
                     {
+   
                         if (await _userManager.IsInRoleAsync(user, "OrganizationUser"))
                         {
                             if (user is not OrganizationUsers realUser)

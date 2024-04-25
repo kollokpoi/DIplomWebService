@@ -1,4 +1,4 @@
-﻿namespace DiplomService.ViewModels
+﻿namespace DiplomService.ViewModels.Admin
 {
     public class AdminDashboardViewModel
     {

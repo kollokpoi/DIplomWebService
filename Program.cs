@@ -19,22 +19,33 @@ builder.Services.AddIdentity<User, IdentityRole>(opts =>
     opts.User.RequireUniqueEmail = true;
 }).AddEntityFrameworkStores<ApplicationContext>();
 
-builder.Services.AddHangfire(opt => opt.UseSqlServerStorage(connectionString));
+//builder.Services.AddHangfire(opt => opt.UseSqlServerStorage(connectionString));
 builder.Services.AddScoped<IRazorViewToStringRenderer, RazorViewToStringRenderer>();
 
 builder.Services.AddEndpointsApiExplorer();
 
 builder.Services.AddSwaggerGen();
-var app = builder.Build();
 
-// Configure the HTTP request pipeline.
+
+
+var app = builder.Build();
+using (var scope = app.Services.CreateScope())
+{
+    // Получение UserManager<User> из области видимости запроса
+    var userManager = scope.ServiceProvider.GetRequiredService<UserManager<User>>();
+
+    var chatServer = new ChatServer(new ApplicationContext(), userManager);
+    new Thread(new ThreadStart(chatServer.Start)).Start();
+}
+
+
 if (!app.Environment.IsDevelopment())
 {
     app.UseExceptionHandler("/Home/Error");
     app.UseHsts();
 }
 
-app.UseHangfireDashboard("/dashboard");
+//app.UseHangfireDashboard("/dashboard");
 
 if (app.Environment.IsDevelopment())
 {

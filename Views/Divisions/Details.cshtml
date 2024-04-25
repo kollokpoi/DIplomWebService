@@ -19,19 +19,55 @@
 
             if (mimeType != null)
             {
-                <img src="data:@mimeType;base64,@Convert.ToBase64String(Model.PreviewImage)" alt="Image" class="w-25 bigMainImage">
+                <img src="data:@mimeType;base64,@Convert.ToBase64String(Model.PreviewImage)" alt="Image" class="bigMainImage">
             }
         }
         else
         {
-            <img src="/Images/camara.png" alt="Image" class="w-25 bigMainImage">
+            <img src="/Images/camara.png" alt="Image" class="bigMainImage">
         }
         <div class="ms-5">
-            <p class="h5 fw-bold">Описание:</p>
-            <p>@Model.Description</p>
+            <p class="item-block__text h5"><span class="fw-bold">Описание: </span>@Model.Description</p>
         </div>
     </div>
-    <p class="item-block__text h5 my-3"><span class="fw-bold">Дата начала:</span> @Model.DateOfStart</p>
-    <p class="item-block__text h5 my-3"><span class="fw-bold">Принимают участие:</span> @Model.DivisionMembers.Count</p>
+    <div class="d-flex justify-content-between">
+        <p class="item-block__text my-2 h5"><span class="fw-bold">Дата начала:</span> @Model.DateOfStart</p>
+        <p class="item-block__text my-2 h5">
+            <span class="fw-bold">Дата окончания:</span>
+            @{
+                if (Model.DateOfEnd != null)
+                {
+                    @Model.DateOfEnd.Value.ToShortDateString()
+                    ;
+                }
+                else
+                {
+                    @("Не указана")
+                    ;
+                }
+            }
+        </p>
+    </div>
+    <p class="item-block__text my-3 h5"><span class="fw-bold">Принимают участие:</span> @Model.DivisionMembers.Count</p>
+    <a href="/Events/Details/@Model.EventId" class="my-2 item-block py-2 d-flex">
+        @if (Model.Event.PriviewImage != null)
+        {
+            string? mimeType = Model.Event.MimeType; // MIME-тип по умолчанию
 
+            if (mimeType != null)
+            {
+                <img src="data:@mimeType;base64,@Convert.ToBase64String(Model.Event.PriviewImage)" alt="Image" class="item-block__image">
+            }
+        }
+        else
+        {
+            <img src="/Images/camara.png" alt="Image" class="item-block__image">
+        }
+        <div class="item-block__column">
+            <p class="item-block__title">@Model.Event.Name</p>
+            <p class="item-block__text">
+                @Model.Event.Description
+            </p>
+        </div>
+    </a>
 </div>

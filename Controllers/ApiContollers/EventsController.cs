@@ -38,7 +38,7 @@ namespace DiplomService.Controllers.ApiContollers
         }
 
         [HttpGet("GetEventsForUser")]
-        public async Task<ActionResult<IEnumerable<Event>>> GetEventsForUser()
+        public async Task<ActionResult> GetEventsForUser()
         {
             var user = await _userManager.GetUserAsync(User);
             if (user == null)

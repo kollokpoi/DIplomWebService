@@ -7,7 +7,7 @@
         public string SecondName { get; set; } = "";
         public string LastName { get; set; } = "";
         public int Course { get; set; }
-        public DateTime? Birthday { get; set; }
+        public DateTime Birthday { get; set; }
         public string PhoneNumber { get; set; } = "";
 
         public void SetImageBytes(byte[] imageBytes)

@@ -1,8 +1,9 @@
 ﻿using DiplomService.Models;
+using DiplomService.ViewModels.Measures;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace DiplomService.ViewModels
+namespace DiplomService.ViewModels.Event
 {
     public class EventViewModel
     {
@@ -13,7 +14,7 @@ namespace DiplomService.ViewModels
         public byte[]? PriviewImage { get; set; }
 
         [Required(ErrorMessage = "Поле обязательно к заполнению.")]
-        [MaxLength(40)]
+        [MaxLength(100)]
         [Display(Name = "Название*")]
         public string Name { get; set; } = string.Empty;
 
@@ -39,10 +40,11 @@ namespace DiplomService.ViewModels
         public double? Latitude { get; set; }
         public string? PlaceName { get; set; }
 
-
         public virtual List<Division> Divisions { get; set; } = new();
         public virtual List<Organization> Organizations { get; set; } = new();
         public virtual List<Measure> Measures { get; set; } = new();
+
+        public List<EventMeasuresViewModel> MeasuresViewModel { get; set; } = new();
 
         [NotMapped]
         public string? MimeType { get { return GetImageMimeType(); } }

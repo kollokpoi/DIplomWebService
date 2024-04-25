@@ -3,6 +3,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 using Microsoft.AspNetCore.OpenApi;
 using Microsoft.AspNetCore.Http.HttpResults;
 using System.Text.Json.Serialization;
+using System.Linq;
 
 namespace DiplomService.Models
 {
@@ -14,7 +15,7 @@ namespace DiplomService.Models
         
         public byte[]? PriviewImage { get; set; } = null;
 
-        [MaxLength(40)]
+        [MaxLength(100)]
         [Display(Name = "Название*")]
         public string Name { get; set; } = "";
 
@@ -76,12 +77,9 @@ namespace DiplomService.Models
             get
             {
                 int result = 0;
-
-                foreach (var item in Divisions)
-                {
-                    result += item.DivisionMembers.Count;
-                }
-
+                var divisionMembers = Divisions.SelectMany(d => d.DivisionMembers).ToList();
+                var divisionUsers = divisionMembers.Select(x => x.User);
+                result = divisionUsers.DistinctBy(x=>x.Id).Count();
                 return result;
             }
         }

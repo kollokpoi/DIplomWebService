@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using DiplomService.Models.Users;
+using System.ComponentModel.DataAnnotations;
 using System.Text.Json.Serialization;
 
 namespace DiplomService.Models
@@ -8,16 +9,16 @@ namespace DiplomService.Models
         [Key]
         public int Id { get; set; }
 
-        public int SenderId { get; set; }
-        [Required]
-        [JsonIgnore]
-        public virtual User Sender { get; set; } = new User();
-
         [Required]
         public DateTime DateOfSend { get; set; } = DateTime.Now;
 
         [Required]
         public string Content { get; set; } = "";
 
+        public string SenderId { get; set; } = string.Empty;
+
+        [Required]
+        [JsonIgnore]
+        public virtual MobileUser Sender { get; set; } = new();
     }
 }

@@ -17,7 +17,7 @@ namespace DiplomService.Controllers.ApiContollers
 {
     [Route("api/[controller]")]
     [ApiController]
-    [Authorize]
+    [Authorize(Roles ="MobileUser")]
     public class MeasuresController : ControllerBase
     {
         private readonly ApplicationContext _context;
@@ -31,17 +31,17 @@ namespace DiplomService.Controllers.ApiContollers
 
         // GET: api/Measures
         [HttpGet("GetMeasures")]
-        public async Task<ActionResult<IEnumerable<Measure>>> GetMeasures()
+        public async Task<ActionResult> GetMeasures()
         {
-          if (_context.Measures == null)
-          {
-              return NotFound();
-          }
-            return await _context.Measures.ToListAsync();
+            if (_context.Measures == null)
+            {
+                return NotFound();
+            }
+            return Ok(await _context.Measures.ToListAsync());
         }
 
         [HttpGet("GetMeasuresForUser")]
-        public async Task<ActionResult<IEnumerable<EventMeasuresViewModel>>> GetMeasuresForUser()
+        public async Task<ActionResult> GetMeasuresForUser()
         {
             var user = await _userManager.GetUserAsync(User);
             if (user==null)
@@ -91,10 +91,10 @@ namespace DiplomService.Controllers.ApiContollers
         }
         
         [HttpPost("GetMeasuresDivision")]
-        public async Task<ActionResult<IEnumerable<Measure>>> GetMeasuresDivision([FromBody] List<int> divisions)
+        public async Task<ActionResult> GetMeasuresDivision([FromBody] List<int> divisions)
         {
             var user = await _userManager.GetUserAsync(User);
-            if (user == null)
+            if (user is null)
             {
                 return NotFound();
             }
@@ -114,8 +114,6 @@ namespace DiplomService.Controllers.ApiContollers
                     }
                     measuresForDivision.AddRange(division.MeasureDivisionsInfos);
                 }
-
-                
 
                 foreach (var measure in measuresForDivision)
                 {
@@ -165,7 +163,7 @@ namespace DiplomService.Controllers.ApiContollers
             return Ok(measure);
         }
 
-        static DateTime GetNearestDate(List<MeasureDates> measureDates)
+        public static DateTime GetNearestDate(List<MeasureDates> measureDates)
         {
             DateTime currentDate = DateTime.Now;
             var validDates = measureDates
@@ -175,7 +173,7 @@ namespace DiplomService.Controllers.ApiContollers
 
             return validDates != null ? validDates.Datetime : DateTime.MinValue;
         }
-        static DateTime GetNearestDate(List<MeasureDays> measureDays)
+        public static DateTime GetNearestDate(List<MeasureDays> measureDays)
         {
             DateTime currentDate = DateTime.Now;
             int currentDayOfWeek = (int)currentDate.DayOfWeek;
@@ -197,7 +195,7 @@ namespace DiplomService.Controllers.ApiContollers
                 .ToList();
             return sortedDatesList.FirstOrDefault()?.Datetime ?? DateTime.MinValue;
         }
-        static List<MeasureDates> GetNearestDayOfWeek(List<MeasureDays> measureDays)
+        public static List<MeasureDates> GetNearestDayOfWeek(List<MeasureDays> measureDays)
         {
             DateTime currentDate = DateTime.Now;
             int currentDayOfWeek = (int)currentDate.DayOfWeek;

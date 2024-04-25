@@ -8,8 +8,9 @@ namespace DiplomService.Models.Users
     {
         [Required]
         [DataType(DataType.Date)]
-        public DateTime? Birthday { get; set; }
+        public DateTime Birthday { get; set; }
         public int Course { get; set; }
+        public virtual List<UserDeviceTokens> DeviceTokens { get; set; } = new();
         public virtual List<DivisionUsers> UserDivisions { get; set; } = new();
     }
 }

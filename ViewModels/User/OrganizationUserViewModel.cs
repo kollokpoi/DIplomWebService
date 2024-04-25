@@ -1,7 +1,7 @@
 ﻿using DiplomService.Services.Attributes;
 using System.ComponentModel.DataAnnotations;
 
-namespace DiplomService.ViewModels
+namespace DiplomService.ViewModels.User
 {
     public class OrganizationUserViewModel
     {
@@ -21,7 +21,7 @@ namespace DiplomService.ViewModels
 
         public string Email { get; set; } = "";
         [Display(Name = "Номер телефона")]
-        [RussianPhoneNumberAttribute(ErrorMessage = "Неподходящий формат")]
+        [RussianPhoneNumber(ErrorMessage = "Неподходящий формат")]
         public string? PhoneNumber { get; set; } = "";
 
         public bool Sended { get; set; } = false;

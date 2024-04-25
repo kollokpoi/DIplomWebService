@@ -25,12 +25,36 @@
       "PackagePath": "staticwebassets\\Images\\camara.png"
     },
     {
+      "Id": "H:\\projects\\Diplom\\DiplomService\\wwwroot\\Images\\logoImg.png",
+      "PackagePath": "staticwebassets\\Images\\logoImg.png"
+    },
+    {
       "Id": "H:\\projects\\Diplom\\DiplomService\\wwwroot\\Images\\messageBackImage.png",
       "PackagePath": "staticwebassets\\Images\\messageBackImage.png"
     },
     {
       "Id": "H:\\projects\\Diplom\\DiplomService\\wwwroot\\Images\\questionIcon.png",
       "PackagePath": "staticwebassets\\Images\\questionIcon.png"
+    },
+    {
+      "Id": "H:\\projects\\Diplom\\DiplomService\\wwwroot\\Images\\start_event.png",
+      "PackagePath": "staticwebassets\\Images\\start_event.png"
+    },
+    {
+      "Id": "H:\\projects\\Diplom\\DiplomService\\wwwroot\\Images\\start_event_member.png",
+      "PackagePath": "staticwebassets\\Images\\start_event_member.png"
+    },
+    {
+      "Id": "H:\\projects\\Diplom\\DiplomService\\wwwroot\\Images\\start_hello.png",
+      "PackagePath": "staticwebassets\\Images\\start_hello.png"
+    },
+    {
+      "Id": "H:\\projects\\Diplom\\DiplomService\\wwwroot\\Images\\start_news.png",
+      "PackagePath": "staticwebassets\\Images\\start_news.png"
+    },
+    {
+      "Id": "H:\\projects\\Diplom\\DiplomService\\wwwroot\\Images\\start_phone.png",
+      "PackagePath": "staticwebassets\\Images\\start_phone.png"
     },
     {
       "Id": "H:\\projects\\Diplom\\DiplomService\\wwwroot\\Images\\userImage.png",

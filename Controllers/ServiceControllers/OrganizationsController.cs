@@ -1,5 +1,5 @@
 ﻿using DiplomService.Database;
-using DiplomService.ViewModels;
+using DiplomService.ViewModels.OrganizationViewModels;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -85,6 +85,7 @@ namespace DiplomService.Controllers.ServiceControllers
             var organization = organizationViewModel.Organization;
             if (ModelState.IsValid)
             {
+
                 organization.ReadyToShow = true;
                 _context.Update(organization);
                 await _context.SaveChangesAsync();

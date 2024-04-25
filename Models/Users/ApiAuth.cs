@@ -4,5 +4,6 @@
     {
         public string Phone { get; set; } = "";
         public string Code { get; set; } = "";
+        public string DeviceToken { get; set; } = string.Empty;
     }
 }

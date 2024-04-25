@@ -1,22 +1,25 @@
-﻿using DiplomService.Models;
+﻿
+using DiplomService.Models;
+using DiplomService.Models.ChatsFolder;
 using DiplomService.Models.EventsFolder.Division;
 using DiplomService.Models.OrganizationFolder;
 using DiplomService.Models.Users;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Metadata.Builders;
+
 
 namespace DiplomService.Database
 {
     public class ApplicationContext : IdentityDbContext<User>
     {
-        //readonly StreamWriter operationLogStream = new StreamWriter("logs/operationLog.txt", true);
-        //readonly StreamWriter errorLogStream = new StreamWriter("logs/errorLog.txt", true);
 
         public DbSet<EventApplication> EventApplications { get; set; }
         public DbSet<ApplicationData> ApplicationData { get; set; }
         public DbSet<Chat> Chats { get; set; }
+        public DbSet<ChatMember> ChatMembers { get; set; }
+        public DbSet<Message> Message { get; set; }
+        public DbSet<UserDeviceTokens> UserDeviceTokens { get; set; }
         public DbSet<Division> Divisions { get; set; }
         public DbSet<Event> Events { get; set; }
         public DbSet<Measure> Measures { get; set; }
@@ -24,13 +27,12 @@ namespace DiplomService.Database
         public DbSet<OrganizationApplication> OrganizationApplications { get; set; }
         public DbSet<News> News { get; set; }
         public DbSet<DivisionUsers> DivisionUsers { get; set; }
-
         public DbSet<MobileUser> MobileUsers { get; set; }
         public DbSet<Administrator> Administrators { get; set; }
         public DbSet<WebUser> WebUsers { get; set; }
         public DbSet<OrganizationUsers> OrganizationUsers { get; set; }
         public DbSet<MeasureDivisionsInfo> MeasureDivisionsInfos { get; set; }
-
+        public ApplicationContext(){}
 
         public ApplicationContext(DbContextOptions<ApplicationContext> options)
             : base(options)
@@ -42,13 +44,17 @@ namespace DiplomService.Database
         {
             optionsBuilder.UseSqlServer("Server=192.168.1.6;Database=EventDB;User=diplomUser;Password=12332155;Encrypt=false;trusted_connection=false")
                 .UseLazyLoadingProxies();
-        }
 
+            optionsBuilder
+              .UseLoggerFactory(LoggerFactory.Create(builder =>
+              {
+                  builder.AddConsole();
+                  builder.AddDebug();
+              }));
+        }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
-
-            modelBuilder.ApplyConfiguration(new ChatConfiguration());
 
             modelBuilder.Entity<Event>()
                   .HasMany(c => c.Organizations)
@@ -87,39 +93,5 @@ namespace DiplomService.Database
                 .OnDelete(DeleteBehavior.NoAction); 
         }
 
-
-        public class ChatConfiguration : IEntityTypeConfiguration<Chat>
-        {
-            public void Configure(EntityTypeBuilder<Chat> builder)
-            {
-                builder.HasOne(c => c.FirstUser)
-                    .WithOne() // Один к одному
-                    .HasForeignKey<Chat>(c => c.FirstUserId)
-                    .OnDelete(DeleteBehavior.Restrict);
-
-                // Ограничения внешнего ключа для второго пользователя
-                builder.HasOne(c => c.SecondUser)
-                    .WithOne() // Один к одному
-                    .HasForeignKey<Chat>(c => c.SecondUserId)
-                    .OnDelete(DeleteBehavior.Restrict);
-            }
-        }
-
-
-        public override void Dispose()
-        {
-            base.Dispose();
-            //operationLogStream.Dispose();
-            //errorLogStream.Dispose();
-        }
-
-        public override async ValueTask DisposeAsync()
-        {
-            await base.DisposeAsync();
-            //await operationLogStream.DisposeAsync();
-            //errorLogStream.Dispose();
-        }
-
-        public DbSet<DiplomService.Models.Message> Message { get; set; } = default!;
     }
 }

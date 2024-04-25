@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Design;
+using Microsoft.Extensions.Options;
 
 namespace DiplomService.Database
 {
@@ -15,13 +16,16 @@ namespace DiplomService.Database
             builder.AddJsonFile("appsettings.json");
             IConfigurationRoot config = builder.Build();
 
-            // получаем строку подключения из файла appsettings.json
-            string connectionString = config.GetConnectionString("DefaultConnection");
-            optionsBuilder.UseSqlServer(connectionString);
+            if (config is not null)
+            {
+                string? connectionString = config.GetConnectionString("DefaultConnection");
+                optionsBuilder.UseSqlServer(connectionString);
 
-            var options = optionsBuilder.Options;
+                var options = optionsBuilder.Options;
 
-            return new ApplicationContext(options);
+                return new ApplicationContext(options);
+            }
+            return new ApplicationContext();
         }
     }
 }

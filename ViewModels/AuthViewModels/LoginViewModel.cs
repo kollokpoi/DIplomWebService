@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace DiplomService.ViewModels
+namespace DiplomService.ViewModels.AuthViewModels
 {
     public class LoginViewModel
     {

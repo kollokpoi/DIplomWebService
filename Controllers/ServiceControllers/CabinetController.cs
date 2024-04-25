@@ -46,7 +46,10 @@ namespace DiplomService.Controllers.ServiceControllers
         }
         public ActionResult Index()
         {
-
+            var us = User;
+            var u = User.Identity;
+            var cl = us.Claims.First(x=>x.Type == "AspNet.Identity.SecurityStamp");
+            var r = _userManager.GetUsersForClaimAsync(cl).Result;
             if (User.IsInRole("Administrator"))
             {
                 return RedirectToAction("Dashboard", "Admin");

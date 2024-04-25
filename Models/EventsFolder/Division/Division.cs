@@ -38,7 +38,8 @@ namespace DiplomService.Models
         public virtual List<MeasureDivisionsInfo> MeasureDivisionsInfos { get; set; } = new();
         [JsonIgnore]
         public virtual List<DivisionUsers> DivisionMembers { get; set; } = new();
-
+        [NotMapped]
+        public bool DivisionLeaderExist { get { return DivisionMembers.Any(x => x.DivisionDirector); }}
 
         [NotMapped]
         public string? MimeType { get { return GetImageMimeType(); } }

@@ -15,7 +15,7 @@ namespace DiplomService.Controllers.ApiContollers
 {
     [Route("api/[controller]")]
     [ApiController]
-    [Authorize]
+    [Authorize(Roles = "MobileUser")]
     public class DivisionsController : ControllerBase
     {
         private readonly ApplicationContext _context;
@@ -53,7 +53,7 @@ namespace DiplomService.Controllers.ApiContollers
         }
         // GET: api/Divisions/5
         [HttpGet("GetDivision/{id}")]
-        public async Task<ActionResult<Division>> GetDivision(int id)
+        public async Task<ActionResult> GetDivision(int id)
         {
             if (_context.Divisions == null)
             {
@@ -65,8 +65,7 @@ namespace DiplomService.Controllers.ApiContollers
             {
                 return NotFound();
             }
-
-            return division;
+            return Ok(division);
         }
     }
 }

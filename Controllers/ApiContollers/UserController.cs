@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using System.Security.Claims;
 
 namespace DiplomService.Controllers.ApiContollers
 {
@@ -34,7 +35,7 @@ namespace DiplomService.Controllers.ApiContollers
             if (user != null)
             {
                 GenerateCode(user.Id);
-                return Ok(new { timeToNextRequest = timeToNextRequest});
+                return Ok(new {timeToNextRequest});
             }
             else
             {
@@ -52,8 +53,10 @@ namespace DiplomService.Controllers.ApiContollers
                 string original = codes[user.Id];
                 if (original == apiAuth.Code)
                 {
+                    
                     await _signInManager.SignInAsync(user, true);
-                    return Ok();
+                    
+                    return Ok(user.SecurityStamp);
                 }
                 return BadRequest();
             }
@@ -61,6 +64,25 @@ namespace DiplomService.Controllers.ApiContollers
             {
                 return NotFound();
             }
+        }
+
+
+        [HttpPost("AddDeviceKey")]
+        public async Task<IActionResult> AddDeviceKey([FromBody] string token)
+        {
+            var user = await _userManager.GetUserAsync(User) as MobileUser;
+            if (user != null)
+                if (!user.DeviceTokens.Any(x => x.DeviceToken == token))
+                {
+                    _context.UserDeviceTokens.Add(new()
+                    {
+                        User = user,
+                        DeviceToken = token,
+                    });
+                    _context.SaveChanges();
+                    return Ok();
+                }
+            return BadRequest();
         }
 
         [HttpPost("ResendCode")]
@@ -80,10 +102,11 @@ namespace DiplomService.Controllers.ApiContollers
         }
 
         [HttpPost("CheckAuthorize")]
-        public IActionResult CheckAuthorize()
+        public async Task<IActionResult> CheckAuthorize()
         {
-            if (User.Identity.IsAuthenticated)
-                return Ok();
+            var user = await _userManager.GetUserAsync(User) as MobileUser;
+            if (user is not null)
+                return Ok(new { stamp = user.SecurityStamp });
             return BadRequest();
         }
 
@@ -100,7 +123,7 @@ namespace DiplomService.Controllers.ApiContollers
                 SecondName = user.SecondName ?? "",
                 LastName = user.LastName ?? "",
                 Course= user.Course,
-                Birthday = user.Birthday.Value.Date,
+                Birthday = user.Birthday,
                 PhoneNumber = user.PhoneNumber ?? ""
             };
             if (user.Image!=null)

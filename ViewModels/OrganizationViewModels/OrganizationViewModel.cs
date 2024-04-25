@@ -1,7 +1,7 @@
 ﻿using DiplomService.Models;
 using System.ComponentModel.DataAnnotations;
 
-namespace DiplomService.ViewModels
+namespace DiplomService.ViewModels.OrganizationViewModels
 {
     public class OrganizationViewModel
     {
@@ -10,7 +10,6 @@ namespace DiplomService.ViewModels
         [Required]
         private IFormFile? imageFile = null;
 
-        [Required(ErrorMessage = "Добавьте изображение")]
         [Display(Name = "Изображение")]
         public IFormFile? ImageFile
         {

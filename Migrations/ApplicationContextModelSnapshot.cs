@@ -17,7 +17,7 @@ namespace DiplomService.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "7.0.12")
+                .HasAnnotation("ProductVersion", "8.0.2")
                 .HasAnnotation("Proxies:ChangeTracking", false)
                 .HasAnnotation("Proxies:CheckEquality", false)
                 .HasAnnotation("Proxies:LazyLoading", true)
@@ -85,23 +85,29 @@ namespace DiplomService.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<string>("FirstUserId")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(450)");
-
-                    b.Property<string>("SecondUserId")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(450)");
+                    b.Property<int>("DivisionId")
+                        .HasColumnType("int");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("FirstUserId")
-                        .IsUnique();
-
-                    b.HasIndex("SecondUserId")
-                        .IsUnique();
+                    b.HasIndex("DivisionId");
 
                     b.ToTable("Chats");
+                });
+
+            modelBuilder.Entity("DiplomService.Models.ChatsFolder.ChatMember", b =>
+                {
+                    b.Property<int>("ChatId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("UserId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.HasKey("ChatId", "UserId");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("ChatMembers");
                 });
 
             modelBuilder.Entity("DiplomService.Models.Division", b =>
@@ -407,10 +413,7 @@ namespace DiplomService.Migrations
                     b.Property<DateTime>("DateOfSend")
                         .HasColumnType("datetime2");
 
-                    b.Property<int>("SenderId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("SenderId1")
+                    b.Property<string>("SenderId")
                         .IsRequired()
                         .HasColumnType("nvarchar(450)");
 
@@ -418,7 +421,7 @@ namespace DiplomService.Migrations
 
                     b.HasIndex("ChatId");
 
-                    b.HasIndex("SenderId1");
+                    b.HasIndex("SenderId");
 
                     b.ToTable("Message");
                 });
@@ -655,6 +658,29 @@ namespace DiplomService.Migrations
                     b.UseTptMappingStrategy();
                 });
 
+            modelBuilder.Entity("DiplomService.Models.Users.UserDeviceTokens", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("DeviceToken")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("UserId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("UserDeviceTokens");
+                });
+
             modelBuilder.Entity("EventOrganization", b =>
                 {
                     b.Property<int>("EventsId")
@@ -811,8 +837,7 @@ namespace DiplomService.Migrations
                 {
                     b.HasBaseType("DiplomService.Models.User");
 
-                    b.Property<DateTime?>("Birthday")
-                        .IsRequired()
+                    b.Property<DateTime>("Birthday")
                         .HasColumnType("datetime2");
 
                     b.Property<int>("Course")
@@ -864,21 +889,32 @@ namespace DiplomService.Migrations
 
             modelBuilder.Entity("DiplomService.Models.Chat", b =>
                 {
-                    b.HasOne("DiplomService.Models.User", "FirstUser")
-                        .WithOne()
-                        .HasForeignKey("DiplomService.Models.Chat", "FirstUserId")
-                        .OnDelete(DeleteBehavior.Restrict)
+                    b.HasOne("DiplomService.Models.Division", "Division")
+                        .WithMany()
+                        .HasForeignKey("DivisionId")
+                        .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("DiplomService.Models.User", "SecondUser")
-                        .WithOne()
-                        .HasForeignKey("DiplomService.Models.Chat", "SecondUserId")
-                        .OnDelete(DeleteBehavior.Restrict)
+                    b.Navigation("Division");
+                });
+
+            modelBuilder.Entity("DiplomService.Models.ChatsFolder.ChatMember", b =>
+                {
+                    b.HasOne("DiplomService.Models.Chat", "Chat")
+                        .WithMany("ChatMembers")
+                        .HasForeignKey("ChatId")
+                        .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("FirstUser");
+                    b.HasOne("DiplomService.Models.Users.MobileUser", "User")
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
-                    b.Navigation("SecondUser");
+                    b.Navigation("Chat");
+
+                    b.Navigation("User");
                 });
 
             modelBuilder.Entity("DiplomService.Models.Division", b =>
@@ -989,7 +1025,7 @@ namespace DiplomService.Migrations
 
                     b.HasOne("DiplomService.Models.User", "Sender")
                         .WithMany()
-                        .HasForeignKey("SenderId1")
+                        .HasForeignKey("SenderId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
@@ -1014,6 +1050,17 @@ namespace DiplomService.Migrations
                         .IsRequired();
 
                     b.Navigation("News");
+                });
+
+            modelBuilder.Entity("DiplomService.Models.Users.UserDeviceTokens", b =>
+                {
+                    b.HasOne("DiplomService.Models.Users.MobileUser", "User")
+                        .WithMany("DeviceTokens")
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("User");
                 });
 
             modelBuilder.Entity("EventOrganization", b =>
@@ -1128,6 +1175,8 @@ namespace DiplomService.Migrations
 
             modelBuilder.Entity("DiplomService.Models.Chat", b =>
                 {
+                    b.Navigation("ChatMembers");
+
                     b.Navigation("Messages");
                 });
 
@@ -1178,6 +1227,8 @@ namespace DiplomService.Migrations
 
             modelBuilder.Entity("DiplomService.Models.Users.MobileUser", b =>
                 {
+                    b.Navigation("DeviceTokens");
+
                     b.Navigation("UserDivisions");
                 });
 

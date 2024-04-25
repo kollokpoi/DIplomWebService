@@ -2,8 +2,9 @@
 using DiplomService.Models;
 using DiplomService.Models.Users;
 using DiplomService.Services;
-using DiplomService.ViewModels;
 using DiplomService.ViewModels.Email;
+using DiplomService.ViewModels.OrganizationViewModels;
+using DiplomService.ViewModels.User;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
@@ -160,9 +161,23 @@ namespace DiplomService.Controllers.ServiceControllers
         [HttpPost]
         public async Task<IActionResult> Organization(OrganizationViewModel model)
         {
-            if (ModelState.IsValid)
+            var org = await _context.Organizations.FirstOrDefaultAsync(x => x.Id == model.Organization.Id);
+            if (ModelState.IsValid && org!=null)
             {
-                _context.Update(model.Organization);
+                if (model.Organization.Preview != null)
+                {
+                    org.Preview = model.Organization.Preview;
+                }
+                else
+                {
+                    model.Organization.Preview = org.Preview;
+                }
+                    
+                
+                org.Name = model.Organization.Name;
+                org.Email = model.Organization.Email;
+                org.Description = model.Organization.Description;
+                _context.Update(org);
                 await _context.SaveChangesAsync();
             }
             return View(model);
