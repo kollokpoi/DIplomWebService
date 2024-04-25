@@ -126,19 +126,21 @@
 
                         <p class="messageBody__text"><span class="font__bold">Ваш логин: </span>@Model.UserEmail</p>
                         <p class="messageBody__text"><span class="font__bold">Ваш Пароль: </span>@Model.Password</p>
+
+                        <p class="messageBody__text"><span class="font__bold">Комментарий администратора:</span>@Model.ResponseMessage</p>
+
+                        <div class="centredFlex">
+                            <a href="@Model.BaseUrl" class="messageBody__button">Завершить регистрацию</a>
+                        </div>
                     }
                     else
                     {
                         <p class="messageBody__text upperText">@Model.DateOfSend.ToShortDateString() вы подавали заявку на платформу <span class="font__bold">PrograMath</span>
                             от имени организации <span class="font__bold">@Model.OrganizationName</span> и ваша заявка была отклонена.</p>
+                        <p class="messageBody__text"><span class="font__bold">Комментарий администратора:</span>@Model.ResponseMessage</p>
                     }
                 }
                 
-                <p class="messageBody__text"><span class="font__bold">Комментарий администратора:</span>@Model.ResponseMessage</p>
-
-                <div class="centredFlex">
-                    <a href="@Model.BaseUrl" class="messageBody__button">Завершить регистрацию</a>
-                </div>
 
                 <p class="messageBody__text"><span class="font__bold">Контакты для связи:</span></p>
             </div>
