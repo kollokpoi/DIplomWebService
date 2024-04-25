@@ -42,7 +42,7 @@ namespace DiplomService.Database
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer("Server=192.168.1.6;Database=EventDB;User=diplomUser;Password=12332155;Encrypt=false;trusted_connection=false")
+            optionsBuilder.UseSqlServer("Server=80.76.60.192;Database=EventDB;User=sa;Password=12332155ZbLe!;Encrypt=false;trusted_connection=false")
                 .UseLazyLoadingProxies();
 
             optionsBuilder

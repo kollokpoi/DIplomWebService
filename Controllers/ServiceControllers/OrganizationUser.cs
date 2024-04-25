@@ -177,6 +177,7 @@ namespace DiplomService.Controllers.ServiceControllers
                 org.Name = model.Organization.Name;
                 org.Email = model.Organization.Email;
                 org.Description = model.Organization.Description;
+                org.ReadyToShow = true;
                 _context.Update(org);
                 await _context.SaveChangesAsync();
             }

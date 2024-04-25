@@ -27,7 +27,7 @@ namespace DiplomService.Services
         {
             _context = context;
             
-            var filePath = Path.Combine(Directory.GetCurrentDirectory(), "Properties", "google-services.json");
+            var filePath = Path.Combine(Directory.GetCurrentDirectory(), "google-services.json");
             FirebaseApp.Create(new AppOptions() { Credential = GoogleCredential.FromFile(filePath) });
             listener = new TcpListener(IPAddress.Any, 3333);
         }

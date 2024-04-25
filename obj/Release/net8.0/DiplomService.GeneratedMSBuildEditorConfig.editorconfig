@@ -1,0 +1,279 @@
+is_global = true
+build_property.TargetFramework = net8.0
+build_property.TargetFramework = net8.0
+build_property.TargetPlatformMinVersion = 
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.ProjectTypeGuids = 
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = 
+build_property.InvariantGlobalization = 
+build_property.PlatformNeutralAssembly = 
+build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.RootNamespace = DiplomService
+build_property.RootNamespace = DiplomService
+build_property.ProjectDir = H:\projects\Diplom\DiplomService\
+build_property.EnableComHosting = 
+build_property.EnableGeneratedComInterfaceComImportInterop = 
+build_property.RazorLangVersion = 8.0
+build_property.SupportLocalizedComponentNames = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+build_property.MSBuildProjectDirectory = H:\projects\Diplom\DiplomService
+build_property._RazorSourceGeneratorDebug = 
+
+[H:/projects/Diplom/DiplomService/Views/Account/Login.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxMb2dpbi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[H:/projects/Diplom/DiplomService/Views/Account/OrganizationRegistration.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxPcmdhbml6YXRpb25SZWdpc3RyYXRpb24uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[H:/projects/Diplom/DiplomService/Views/Account/Registration.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxSZWdpc3RyYXRpb24uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[H:/projects/Diplom/DiplomService/Views/Admin/Applications.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cQXBwbGljYXRpb25zLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[H:/projects/Diplom/DiplomService/Views/Admin/Dashboard.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cRGFzaGJvYXJkLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[H:/projects/Diplom/DiplomService/Views/Admin/EditApplication.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cRWRpdEFwcGxpY2F0aW9uLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[H:/projects/Diplom/DiplomService/Views/Admin/Events.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cRXZlbnRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[H:/projects/Diplom/DiplomService/Views/Admin/News.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cTmV3cy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[H:/projects/Diplom/DiplomService/Views/Admin/Organizations.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cT3JnYW5pemF0aW9ucy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[H:/projects/Diplom/DiplomService/Views/Cabinet/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2FiaW5ldFxFZGl0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[H:/projects/Diplom/DiplomService/Views/Cabinet/EditPassword.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2FiaW5ldFxFZGl0UGFzc3dvcmQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[H:/projects/Diplom/DiplomService/Views/Cabinet/PasswordUpdate.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2FiaW5ldFxQYXNzd29yZFVwZGF0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[H:/projects/Diplom/DiplomService/Views/Divisions/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGl2aXNpb25zXENyZWF0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[H:/projects/Diplom/DiplomService/Views/Divisions/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGl2aXNpb25zXERldGFpbHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[H:/projects/Diplom/DiplomService/Views/Divisions/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGl2aXNpb25zXEVkaXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[H:/projects/Diplom/DiplomService/Views/Divisions/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGl2aXNpb25zXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[H:/projects/Diplom/DiplomService/Views/EventApplications/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXZlbnRBcHBsaWNhdGlvbnNcQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[H:/projects/Diplom/DiplomService/Views/EventApplications/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXZlbnRBcHBsaWNhdGlvbnNcRGV0YWlscy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[H:/projects/Diplom/DiplomService/Views/EventApplications/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXZlbnRBcHBsaWNhdGlvbnNcRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[H:/projects/Diplom/DiplomService/Views/EventApplications/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXZlbnRBcHBsaWNhdGlvbnNcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[H:/projects/Diplom/DiplomService/Views/Events/AddUser.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXZlbnRzXEFkZFVzZXIuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[H:/projects/Diplom/DiplomService/Views/Events/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXZlbnRzXENyZWF0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[H:/projects/Diplom/DiplomService/Views/Events/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXZlbnRzXERldGFpbHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[H:/projects/Diplom/DiplomService/Views/Events/DivisionsUsers.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXZlbnRzXERpdmlzaW9uc1VzZXJzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[H:/projects/Diplom/DiplomService/Views/Events/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXZlbnRzXEVkaXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[H:/projects/Diplom/DiplomService/Views/Events/EditUser.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXZlbnRzXEVkaXRVc2VyLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[H:/projects/Diplom/DiplomService/Views/Events/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXZlbnRzXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[H:/projects/Diplom/DiplomService/Views/Events/NoDivisionUsers.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXZlbnRzXE5vRGl2aXNpb25Vc2Vycy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[H:/projects/Diplom/DiplomService/Views/Home/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[H:/projects/Diplom/DiplomService/Views/HtmlTemplates/ApplicationResponse.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSHRtbFRlbXBsYXRlc1xBcHBsaWNhdGlvblJlc3BvbnNlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[H:/projects/Diplom/DiplomService/Views/HtmlTemplates/EmailAccept.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSHRtbFRlbXBsYXRlc1xFbWFpbEFjY2VwdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[H:/projects/Diplom/DiplomService/Views/HtmlTemplates/EventApplicationResponce.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSHRtbFRlbXBsYXRlc1xFdmVudEFwcGxpY2F0aW9uUmVzcG9uY2UuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[H:/projects/Diplom/DiplomService/Views/HtmlTemplates/RegistrateUser.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSHRtbFRlbXBsYXRlc1xSZWdpc3RyYXRlVXNlci5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[H:/projects/Diplom/DiplomService/Views/Measures/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWVhc3VyZXNcQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[H:/projects/Diplom/DiplomService/Views/Measures/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWVhc3VyZXNcRGV0YWlscy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[H:/projects/Diplom/DiplomService/Views/Measures/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWVhc3VyZXNcRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[H:/projects/Diplom/DiplomService/Views/Measures/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWVhc3VyZXNcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[H:/projects/Diplom/DiplomService/Views/News/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTmV3c1xDcmVhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[H:/projects/Diplom/DiplomService/Views/News/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTmV3c1xEZXRhaWxzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[H:/projects/Diplom/DiplomService/Views/News/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTmV3c1xFZGl0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[H:/projects/Diplom/DiplomService/Views/News/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTmV3c1xJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[H:/projects/Diplom/DiplomService/Views/Organizations/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT3JnYW5pemF0aW9uc1xDcmVhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[H:/projects/Diplom/DiplomService/Views/Organizations/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT3JnYW5pemF0aW9uc1xEZWxldGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[H:/projects/Diplom/DiplomService/Views/Organizations/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT3JnYW5pemF0aW9uc1xEZXRhaWxzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[H:/projects/Diplom/DiplomService/Views/Organizations/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT3JnYW5pemF0aW9uc1xFZGl0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[H:/projects/Diplom/DiplomService/Views/Organizations/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT3JnYW5pemF0aW9uc1xJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[H:/projects/Diplom/DiplomService/Views/OrganizationUser/AddUser.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT3JnYW5pemF0aW9uVXNlclxBZGRVc2VyLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[H:/projects/Diplom/DiplomService/Views/OrganizationUser/Organization.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT3JnYW5pemF0aW9uVXNlclxPcmdhbml6YXRpb24uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[H:/projects/Diplom/DiplomService/Views/OrganizationUser/OrganizationEvents.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT3JnYW5pemF0aW9uVXNlclxPcmdhbml6YXRpb25FdmVudHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[H:/projects/Diplom/DiplomService/Views/OrganizationUser/OrganizationUsers.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT3JnYW5pemF0aW9uVXNlclxPcmdhbml6YXRpb25Vc2Vycy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[H:/projects/Diplom/DiplomService/Views/Shared/Error.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[H:/projects/Diplom/DiplomService/Views/Shared/_ApplicationDataEntry.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9BcHBsaWNhdGlvbkRhdGFFbnRyeS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[H:/projects/Diplom/DiplomService/Views/Shared/_Layout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[H:/projects/Diplom/DiplomService/Views/Shared/_LoginPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9Mb2dpblBhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[H:/projects/Diplom/DiplomService/Views/Shared/_NavPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9OYXZQYXJ0aWFsLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[H:/projects/Diplom/DiplomService/Views/Shared/_NewsSectionEntry.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9OZXdzU2VjdGlvbkVudHJ5LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[H:/projects/Diplom/DiplomService/Views/Shared/_StylePartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9TdHlsZVBhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[H:/projects/Diplom/DiplomService/Views/Shared/_ValidationScriptsPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[H:/projects/Diplom/DiplomService/Views/User/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxEZXRhaWxzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[H:/projects/Diplom/DiplomService/Views/User/List.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxMaXN0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[H:/projects/Diplom/DiplomService/Views/WebUser/Applications.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcV2ViVXNlclxBcHBsaWNhdGlvbnMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[H:/projects/Diplom/DiplomService/Views/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[H:/projects/Diplom/DiplomService/Views/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
